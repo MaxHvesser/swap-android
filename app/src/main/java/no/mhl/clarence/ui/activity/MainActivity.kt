@@ -2,6 +2,7 @@ package no.mhl.clarence.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
 import no.mhl.clarence.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+    // endregion
+
+    // region Back Navigation
+    override fun onSupportNavigateUp() = findNavController(R.id.main_home_fragment).navigateUp()
     // endregion
 
 }
