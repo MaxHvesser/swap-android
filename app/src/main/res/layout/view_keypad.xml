@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_keypad"
+    android:padding="@dimen/small">
+
+    <!-- region Row One -->
+    <!-- Seven -->
+    <Button
+        android:id="@+id/keypad_seven"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_four"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_eight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Eight -->
+    <Button
+        android:id="@+id/keypad_eight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_five"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_nine"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_seven"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Nine -->
+    <Button
+        android:id="@+id/keypad_nine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_six"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_eight"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- endregion -->
+
+    <!-- region Row Two -->
+    <!-- Four -->
+    <Button
+        android:id="@+id/keypad_four"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_one"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_five"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_seven" />
+
+    <!-- Five -->
+    <Button
+        android:id="@+id/keypad_five"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_two"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_six"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_four"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_eight" />
+
+    <!-- Six -->
+    <Button
+        android:id="@+id/keypad_six"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_three"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_five"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_nine" />
+    <!-- endregion -->
+
+    <!-- region Row Three -->
+    <!-- One -->
+    <Button
+        android:id="@+id/keypad_one"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_decimal"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_two"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_four" />
+
+    <!-- Two -->
+    <Button
+        android:id="@+id/keypad_two"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_zero"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_three"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_one"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_five" />
+
+    <!-- Three -->
+    <Button
+        android:id="@+id/keypad_three"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad_backspace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_two"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_six" />
+    <!-- endregion -->
+
+    <!-- region Row Four -->
+    <!-- Decimal -->
+    <Button
+        android:id="@+id/keypad_decimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_zero"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_one" />
+
+    <!-- Zero -->
+    <Button
+        android:id="@+id/keypad_zero"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/keypad_backspace"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_decimal"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_two" />
+
+    <!-- Backspace -->
+    <Button
+        android:id="@+id/keypad_backspace"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/keypad_zero"
+        app:layout_constraintTop_toBottomOf="@+id/keypad_three" />
+    <!-- endregion -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region Keypad -->
+    <dimen name="keypad_height">300dp</dimen>
+    <!-- endregion -->
+
+    <!-- region Size Metrics -->
+    <dimen name="tiny">4dp</dimen>
+    <dimen name="small">8dp</dimen>
+    <dimen name="regular">16dp</dimen>
+    <dimen name="medium">24dp</dimen>
+    <dimen name="large">32dp</dimen>
+    <!-- endregion -->
+
+</resources>
