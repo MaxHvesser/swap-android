@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- region Branding -->
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <!-- endregion -->
+
+    <!-- region General -->
+    <color name="backgroundPrimary">#F4F4F4</color>
+    <!-- endregion -->
+
 </resources>
