@@ -1,6 +1,7 @@
 package no.mhl.clarence.application
 
 import android.app.Application
+import no.mhl.clarence.di.homeModule
 import no.mhl.clarence.di.mainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -17,7 +18,8 @@ class ClarenceApp : Application() {
             androidContext(this@ClarenceApp)
             modules(
                 listOf(
-                    mainModule
+                    mainModule,
+                    homeModule
                 )
             )
         }
