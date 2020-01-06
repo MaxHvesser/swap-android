@@ -1,10 +1,29 @@
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- region App Theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@color/backgroundPrimary</item>
+        <item name="android:navigationBarColor">@color/backgroundPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Buttons -->
+    <style name="ClarenceButton" parent="Widget.AppCompat.Button"/>
+
+    <style name="ClarenceButton.Keypad" parent="ClarenceButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/ripple_keypad</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/textMedium</item>
     </style>
     <!-- endregion -->
 

@@ -13,4 +13,8 @@
     <dimen name="large">32dp</dimen>
     <!-- endregion -->
 
+    <!-- region Text Size Metrics -->
+    <dimen name="text_large">18sp</dimen>
+    <!-- endregion -->
+
 </resources>

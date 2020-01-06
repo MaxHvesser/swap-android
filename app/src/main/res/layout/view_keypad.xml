@@ -11,46 +11,42 @@
     <!-- Seven -->
     <Button
         android:id="@+id/keypad_seven"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_seven"
         app:layout_constraintBottom_toTopOf="@+id/keypad_four"
         app:layout_constraintEnd_toStartOf="@+id/keypad_eight"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Eight -->
     <Button
         android:id="@+id/keypad_eight"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_eight"
         app:layout_constraintBottom_toTopOf="@+id/keypad_five"
         app:layout_constraintEnd_toStartOf="@+id/keypad_nine"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/keypad_seven"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Nine -->
     <Button
         android:id="@+id/keypad_nine"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_nine"
         app:layout_constraintBottom_toTopOf="@+id/keypad_six"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/keypad_eight"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
     <!-- endregion -->
 
     <!-- region Row Two -->
     <!-- Four -->
     <Button
         android:id="@+id/keypad_four"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_four"
         app:layout_constraintBottom_toTopOf="@+id/keypad_one"
         app:layout_constraintEnd_toStartOf="@+id/keypad_five"
@@ -61,8 +57,7 @@
     <!-- Five -->
     <Button
         android:id="@+id/keypad_five"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_five"
         app:layout_constraintBottom_toTopOf="@+id/keypad_two"
         app:layout_constraintEnd_toStartOf="@+id/keypad_six"
@@ -73,8 +68,7 @@
     <!-- Six -->
     <Button
         android:id="@+id/keypad_six"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_six"
         app:layout_constraintBottom_toTopOf="@+id/keypad_three"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,8 +81,7 @@
     <!-- One -->
     <Button
         android:id="@+id/keypad_one"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_one"
         app:layout_constraintBottom_toTopOf="@+id/keypad_decimal"
         app:layout_constraintEnd_toStartOf="@+id/keypad_two"
@@ -99,8 +92,7 @@
     <!-- Two -->
     <Button
         android:id="@+id/keypad_two"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_two"
         app:layout_constraintBottom_toTopOf="@+id/keypad_zero"
         app:layout_constraintEnd_toStartOf="@+id/keypad_three"
@@ -111,8 +103,7 @@
     <!-- Three -->
     <Button
         android:id="@+id/keypad_three"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_three"
         app:layout_constraintBottom_toTopOf="@+id/keypad_backspace"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,8 +116,7 @@
     <!-- Decimal -->
     <Button
         android:id="@+id/keypad_decimal"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_decimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/keypad_zero"
@@ -137,8 +127,7 @@
     <!-- Zero -->
     <Button
         android:id="@+id/keypad_zero"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         android:text="@string/keypad_zero"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/keypad_backspace"
@@ -149,8 +138,7 @@
     <!-- Backspace -->
     <Button
         android:id="@+id/keypad_backspace"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/ClarenceButton.Keypad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

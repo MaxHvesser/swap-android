@@ -9,6 +9,11 @@
 
     <!-- region General -->
     <color name="backgroundPrimary">#F4F4F4</color>
+    <color name="ripplePrimary">#F4F4F4</color>
+    <!-- endregion -->
+
+    <!-- region Text -->
+    <color name="textMedium">#80000000</color>
     <!-- endregion -->
 
 </resources>
