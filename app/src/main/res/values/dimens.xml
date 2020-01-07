@@ -5,6 +5,10 @@
     <dimen name="keypad_height">300dp</dimen>
     <!-- endregion -->
 
+    <!-- region Currency Row -->
+    <dimen name="currency_row_flag_size">24dp</dimen>
+    <!-- endregion -->
+
     <!-- region Size Metrics -->
     <dimen name="tiny">4dp</dimen>
     <dimen name="small">8dp</dimen>
@@ -14,7 +18,10 @@
     <!-- endregion -->
 
     <!-- region Text Size Metrics -->
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_regular">16sp</dimen>
     <dimen name="text_large">18sp</dimen>
+    <dimen name="text_huge">26sp</dimen>
     <!-- endregion -->
 
 </resources>
