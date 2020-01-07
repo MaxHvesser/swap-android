@@ -5,7 +5,7 @@
 
     <!-- Corners -->
     <corners
-        android:radius="@dimen/regular"/>
+        android:radius="@dimen/large"/>
 
     <!-- Color -->
     <solid
