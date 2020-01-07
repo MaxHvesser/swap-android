@@ -16,7 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/home_keypad_parent"
-        tools:listitem="@layout/row_item_currency"/>
+        tools:listitem="@layout/row_item_currency"
+        tools:itemCount="1"/>
 
     <!-- Keypad View -->
     <androidx.constraintlayout.widget.ConstraintLayout

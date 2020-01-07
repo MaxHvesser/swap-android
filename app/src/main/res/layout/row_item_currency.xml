@@ -30,7 +30,7 @@
         app:layout_constraintStart_toEndOf="@id/row_currency_flag"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="GBP"/>
+        tools:text="NOK"/>
 
     <!-- Value EditText -->
     <EditText
