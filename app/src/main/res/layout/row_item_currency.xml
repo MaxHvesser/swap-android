@@ -33,7 +33,7 @@
         tools:text="NOK"/>
 
     <!-- Value EditText -->
-    <EditText
+    <TextView
         android:id="@+id/row_currency_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
