@@ -8,14 +8,15 @@
     <!-- endregion -->
 
     <!-- region General -->
-    <color name="backgroundPrimary">#F4F4F4</color>
-    <color name="ripplePrimary">#F4F4F4</color>
+    <color name="backgroundPrimary">#060F1B</color>
+    <color name="backgroundSecondary">#141F2F</color>
+    <color name="ripplePrimary">#0DFFFFFF</color>
     <!-- endregion -->
 
     <!-- region Text -->
-    <color name="textMedium">#80000000</color>
-    <color name="textStrong">#CC000000</color>
-    <color name="textStrongSecondary">#99000000</color>
+    <color name="textMedium">#80FFFFFF</color>
+    <color name="textStrong">#FFFFFF</color>
+    <color name="textStrongSecondary">#99FFFFFF</color>
     <!-- endregion -->
 
 </resources>

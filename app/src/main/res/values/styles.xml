@@ -9,8 +9,6 @@
 
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>
     <!-- endregion -->
 
@@ -21,9 +19,9 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:background">@drawable/ripple_keypad</item>
-        <item name="android:textSize">@dimen/text_large</item>
-        <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/textMedium</item>
+        <item name="android:textSize">@dimen/text_huge</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+        <item name="android:textColor">@color/textStrong</item>
     </style>
     <!-- endregion -->
 

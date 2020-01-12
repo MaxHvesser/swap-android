@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/background_keypad"
-        android:paddingTop="@dimen/small">
+        android:padding="@dimen/large">
         <no.mhl.clarence.ui.views.keypad.KeypadView
             android:id="@+id/home_keypad_view"
             android:layout_width="match_parent"

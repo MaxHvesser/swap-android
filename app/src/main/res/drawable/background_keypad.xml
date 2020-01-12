@@ -9,6 +9,6 @@
 
     <!-- Color -->
     <solid
-        android:color="@android:color/white"/>
+        android:color="@color/backgroundSecondary"/>
 
 </shape>
