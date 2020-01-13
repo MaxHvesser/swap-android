@@ -18,10 +18,6 @@ class HomeFragment : Fragment() {
 
     // region Properties
     private val homeViewModel: HomeViewModel by viewModel()
-
-    private val testItems = arrayListOf(10000, 20, 3)
-    private val currencyRecyclerAdapter = CurrencyRecyclerAdapter(testItems)
-    private val currencyLayoutManager = LinearLayoutManager(context)
     // endregion
 
     // region Initialisation
@@ -47,29 +43,14 @@ class HomeFragment : Fragment() {
     // region View Setup
     private fun setupView(view: View) {
         val keypadParent = view.findViewById<ConstraintLayout>(R.id.home_keypad_parent)
-        val currencyRecycler = view.findViewById<RecyclerView>(R.id.home_currency_recycler)
 
-        setupViewInsets(keypadParent, currencyRecycler)
-        setupCurrencyRecycler(currencyRecycler)
+        setupViewInsets(keypadParent)
     }
 
-    private fun setupViewInsets(keypadParent: View, currencyRecycler: View) {
+    private fun setupViewInsets(keypadParent: View) {
         ViewCompat.setOnApplyWindowInsetsListener(keypadParent) { v, insets ->
             v.updatePadding(bottom = insets.systemWindowInsetBottom)
             insets
-        }
-        ViewCompat.setOnApplyWindowInsetsListener(currencyRecycler) { v, insets ->
-            v.updatePadding(top = insets.systemWindowInsetTop)
-            insets
-        }
-    }
-    // endregion
-
-    // region Recycler Setup
-    private fun setupCurrencyRecycler(recycler: RecyclerView) {
-        recycler.apply {
-            adapter = currencyRecyclerAdapter
-            layoutManager = currencyLayoutManager
         }
     }
     // endregion

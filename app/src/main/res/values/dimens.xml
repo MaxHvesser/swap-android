@@ -9,7 +9,14 @@
     <dimen name="currency_row_flag_size">24dp</dimen>
     <!-- endregion -->
 
+    <!-- region Currency Display -->
+    <dimen name="currency_display_dropdown_arrow_size">10dp</dimen>
+    <dimen name="currency_display_flag_size">24dp</dimen>
+    <dimen name="currency_display_value_primary_text_size">46sp</dimen>
+    <!-- endregion -->
+
     <!-- region Size Metrics -->
+    <dimen name="micro">2dp</dimen>
     <dimen name="tiny">4dp</dimen>
     <dimen name="small">8dp</dimen>
     <dimen name="regular">16dp</dimen>
