@@ -136,9 +136,11 @@
         app:layout_constraintTop_toBottomOf="@+id/keypad_two" />
 
     <!-- Backspace -->
-    <Button
+    <ImageButton
         android:id="@+id/keypad_backspace"
         style="@style/ClarenceButton.Keypad"
+        android:src="@drawable/ic_backspace"
+        android:tint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
