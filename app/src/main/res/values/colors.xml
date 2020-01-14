@@ -19,4 +19,8 @@
     <color name="textStrongSecondary">#99FFFFFF</color>
     <!-- endregion -->
 
+    <!-- region Rule -->
+    <color name="rulePrimary">#1AFFFFFF</color>
+    <!-- endregion -->
+
 </resources>

@@ -15,6 +15,10 @@
     <dimen name="currency_display_value_primary_text_size">46sp</dimen>
     <!-- endregion -->
 
+    <!-- region Home -->
+    <dimen name="home_currency_converter_margin">54dp</dimen>
+    <!-- endregion -->
+
     <!-- region Size Metrics -->
     <dimen name="micro">2dp</dimen>
     <dimen name="tiny">4dp</dimen>
@@ -29,6 +33,10 @@
     <dimen name="text_regular">16sp</dimen>
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_huge">26sp</dimen>
+    <!-- endregion -->
+
+    <!-- region Rule -->
+    <dimen name="rule_height">1dp</dimen>
     <!-- endregion -->
 
 </resources>
