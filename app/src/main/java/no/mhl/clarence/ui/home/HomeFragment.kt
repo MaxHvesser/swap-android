@@ -14,6 +14,7 @@ import no.mhl.clarence.R
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.ui.views.keypad.KeypadView
+import no.mhl.clarence.util.consumeKeyForDisplay
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -66,22 +67,7 @@ class HomeFragment : Fragment() {
     // region Keypad View Setup
     private fun setupKeypadView(keypadView: KeypadView) {
         keypadView.keypadClickEvent.observe(viewLifecycleOwner, Observer { key ->
-            when (key) {
-                KeypadKey.ZERO -> currencyDisplayPrimary.appendValue("0")
-                KeypadKey.ONE -> currencyDisplayPrimary.appendValue("1")
-                KeypadKey.TWO -> currencyDisplayPrimary.appendValue("2")
-                KeypadKey.THREE -> currencyDisplayPrimary.appendValue("3")
-                KeypadKey.FOUR -> currencyDisplayPrimary.appendValue("4")
-                KeypadKey.FIVE -> currencyDisplayPrimary.appendValue("5")
-                KeypadKey.SIX -> currencyDisplayPrimary.appendValue("6")
-                KeypadKey.SEVEN -> currencyDisplayPrimary.appendValue("7")
-                KeypadKey.EIGHT -> currencyDisplayPrimary.appendValue("8")
-                KeypadKey.NINE -> currencyDisplayPrimary.appendValue("9")
-                KeypadKey.DECIMAL -> currencyDisplayPrimary.appendValue(".")
-                KeypadKey.BACKSPACE -> currencyDisplayPrimary.backspaceValue()
-                KeypadKey.CLEAR -> currencyDisplayPrimary.clearValue()
-                else -> { }
-            }
+            consumeKeyForDisplay(key, currencyDisplayPrimary)
         })
     }
     // endregion
