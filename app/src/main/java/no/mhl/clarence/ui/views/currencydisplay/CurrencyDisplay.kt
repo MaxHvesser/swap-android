@@ -35,7 +35,7 @@ class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout
 
     fun backspaceValue() {
         if (value.text.length == 1) {
-            value.text = "0"
+            clearValue()
         } else {
             value.text = value.text.substring(0, value.text.length -1)
         }
