@@ -18,4 +18,8 @@
     <string name="keypad_decimal">.</string>
     <!-- endregion -->
 
+    <!-- region Currency Selection -->
+    <string name="currency_selection_search_hint">Search currency</string>
+    <!-- endregion -->
+
 </resources>

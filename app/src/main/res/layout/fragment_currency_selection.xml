@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundPrimary"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/search_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoCorrect"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textColor="@android:color/white"
+        android:hint="@string/currency_selection_search_hint"
+        android:textColorHint="@color/textMedium"
+        android:fontFamily="@font/quicksand_medium"
+        android:textSize="@dimen/text_regular"
+        android:background="@drawable/background_keypad"
+        android:layout_margin="@dimen/regular"
+        android:paddingTop="@dimen/regular"
+        android:paddingBottom="@dimen/regular"
+        android:paddingStart="@dimen/medium"
+        android:paddingEnd="@dimen/medium"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/small"
+        android:drawableTint="@color/textMedium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Currency Recycler -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/currency_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/regular"
+        app:layout_constraintTop_toBottomOf="@id/search_edit_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
