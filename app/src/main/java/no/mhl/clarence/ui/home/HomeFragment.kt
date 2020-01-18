@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import no.mhl.clarence.R
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
@@ -33,9 +34,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
         setupView(view)
-
         return view
     }
 
@@ -53,6 +52,7 @@ class HomeFragment : Fragment() {
 
         setupViewInsets(view.findViewById(R.id.home_keypad_parent))
         setupKeypadView(keypadView)
+        setupCurrencyDisplayPrimary()
     }
 
     private fun setupViewInsets(keypadParent: ConstraintLayout) {
@@ -87,7 +87,17 @@ class HomeFragment : Fragment() {
     // endregion
 
     // region Currency Display Setup
+    private fun setupCurrencyDisplayPrimary() {
+        currencyDisplayPrimary.currencySelectionClick.observe(viewLifecycleOwner, Observer {
+            openCurrencySelection()
+        })
+    }
+    // endregion
 
+    // region Open Currency Selection
+    private fun openCurrencySelection() {
+        findNavController().navigate(R.id.action_homeFragment_to_currencySelectionFragment)
+    }
     // endregion
 
 }

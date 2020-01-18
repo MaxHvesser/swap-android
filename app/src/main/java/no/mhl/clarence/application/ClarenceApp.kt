@@ -1,6 +1,7 @@
 package no.mhl.clarence.application
 
 import android.app.Application
+import no.mhl.clarence.di.currencySelectionModule
 import no.mhl.clarence.di.homeModule
 import no.mhl.clarence.di.mainModule
 import org.koin.android.ext.koin.androidContext
@@ -19,7 +20,8 @@ class ClarenceApp : Application() {
             modules(
                 listOf(
                     mainModule,
-                    homeModule
+                    homeModule,
+                    currencySelectionModule
                 )
             )
         }

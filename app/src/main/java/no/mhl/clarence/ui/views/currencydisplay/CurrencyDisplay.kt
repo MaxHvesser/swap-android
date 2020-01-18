@@ -3,14 +3,21 @@ package no.mhl.clarence.ui.views.currencydisplay
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.MutableLiveData
 import no.mhl.clarence.R
 
 class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
     // region View Properties
     private val value: TextView by lazy { findViewById<TextView>(R.id.currency_display_value) }
+    private val nameContainer: LinearLayout by lazy { findViewById<LinearLayout>(R.id.currency_display_name_container) }
+    // endregion
+
+    // region Click Exposure
+    val currencySelectionClick: MutableLiveData<String> = MutableLiveData()
     // endregion
 
     // region Initialisation
@@ -21,7 +28,13 @@ class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout
     // endregion
 
     // region Setup Views
-    private fun setupViews() { }
+    private fun setupViews() {
+        setupCurrencySelection()
+    }
+
+    private fun setupCurrencySelection() {
+        nameContainer.setOnClickListener { currencySelectionClick.postValue("ok") }
+    }
     // endregion
 
     // region Value Text IO
