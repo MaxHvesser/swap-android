@@ -8,13 +8,22 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import no.mhl.clarence.R
+import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
+import no.mhl.clarence.ui.views.keypad.KeypadKey
+import no.mhl.clarence.ui.views.keypad.KeypadView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     // region Properties
     private val homeViewModel: HomeViewModel by viewModel()
+    // endregion
+
+    // region View Properties
+    private lateinit var keypadView: KeypadView
+    private lateinit var currencyDisplayPrimary: CurrencyDisplay
     // endregion
 
     // region Initialisation
@@ -39,17 +48,45 @@ class HomeFragment : Fragment() {
 
     // region View Setup
     private fun setupView(view: View) {
-        val keypadParent = view.findViewById<ConstraintLayout>(R.id.home_keypad_parent)
+        keypadView = view.findViewById(R.id.home_keypad_view)
+        currencyDisplayPrimary = view.findViewById(R.id.home_currency_display_primary)
 
-        setupViewInsets(keypadParent)
+        setupViewInsets(view.findViewById(R.id.home_keypad_parent))
+        setupKeypadView(keypadView)
     }
 
-    private fun setupViewInsets(keypadParent: View) {
+    private fun setupViewInsets(keypadParent: ConstraintLayout) {
         ViewCompat.setOnApplyWindowInsetsListener(keypadParent) { v, insets ->
             v.updatePadding(bottom = insets.systemWindowInsetBottom)
             insets
         }
     }
+    // endregion
+
+    // region Keypad View Setup
+    private fun setupKeypadView(keypadView: KeypadView) {
+        keypadView.keyPadClickEvent.observe(viewLifecycleOwner, Observer { key ->
+            when (key) {
+                KeypadKey.ZERO -> currencyDisplayPrimary.appendValue("0")
+                KeypadKey.ONE -> currencyDisplayPrimary.appendValue("1")
+                KeypadKey.TWO -> currencyDisplayPrimary.appendValue("2")
+                KeypadKey.THREE -> currencyDisplayPrimary.appendValue("3")
+                KeypadKey.FOUR -> currencyDisplayPrimary.appendValue("4")
+                KeypadKey.FIVE -> currencyDisplayPrimary.appendValue("5")
+                KeypadKey.SIX -> currencyDisplayPrimary.appendValue("6")
+                KeypadKey.SEVEN -> currencyDisplayPrimary.appendValue("7")
+                KeypadKey.EIGHT -> currencyDisplayPrimary.appendValue("8")
+                KeypadKey.NINE -> currencyDisplayPrimary.appendValue("9")
+                KeypadKey.DECIMAL -> currencyDisplayPrimary.appendValue(".")
+                KeypadKey.BACKSPACE -> currencyDisplayPrimary.backspaceValue()
+                else -> { }
+            }
+        })
+    }
+    // endregion
+
+    // region Currency Display Setup
+
     // endregion
 
 }
