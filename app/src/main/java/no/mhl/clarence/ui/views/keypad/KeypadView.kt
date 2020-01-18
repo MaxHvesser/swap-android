@@ -27,7 +27,7 @@ class KeypadView(context: Context, attrs: AttributeSet?) : ConstraintLayout(cont
     // endregion
 
     // region Click Exposure
-    val keyPadClickEvent: MutableLiveData<KeypadKey> = MutableLiveData()
+    val keypadClickEvent: MutableLiveData<KeypadKey> = MutableLiveData()
     // endregion
 
     // region Initialisation
@@ -39,18 +39,22 @@ class KeypadView(context: Context, attrs: AttributeSet?) : ConstraintLayout(cont
 
     // region View Setup
     private fun setupKeyClicks() {
-        keyZero.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.ZERO) }
-        keyOne.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.ONE) }
-        keyTwo.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.TWO) }
-        keyThree.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.THREE) }
-        keyFour.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.FOUR) }
-        keyFive.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.FIVE) }
-        keySix.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.SIX) }
-        keySeven.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.SEVEN) }
-        keyEight.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.EIGHT) }
-        keyNine.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.NINE) }
-        keyDecimal.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.DECIMAL) }
-        keyBackspace.setOnClickListener { keyPadClickEvent.postValue(KeypadKey.BACKSPACE) }
+        keyZero.setOnClickListener { keypadClickEvent.postValue(KeypadKey.ZERO) }
+        keyOne.setOnClickListener { keypadClickEvent.postValue(KeypadKey.ONE) }
+        keyTwo.setOnClickListener { keypadClickEvent.postValue(KeypadKey.TWO) }
+        keyThree.setOnClickListener { keypadClickEvent.postValue(KeypadKey.THREE) }
+        keyFour.setOnClickListener { keypadClickEvent.postValue(KeypadKey.FOUR) }
+        keyFive.setOnClickListener { keypadClickEvent.postValue(KeypadKey.FIVE) }
+        keySix.setOnClickListener { keypadClickEvent.postValue(KeypadKey.SIX) }
+        keySeven.setOnClickListener { keypadClickEvent.postValue(KeypadKey.SEVEN) }
+        keyEight.setOnClickListener { keypadClickEvent.postValue(KeypadKey.EIGHT) }
+        keyNine.setOnClickListener { keypadClickEvent.postValue(KeypadKey.NINE) }
+        keyDecimal.setOnClickListener { keypadClickEvent.postValue(KeypadKey.DECIMAL) }
+        keyBackspace.setOnClickListener { keypadClickEvent.postValue(KeypadKey.BACKSPACE) }
+        keyBackspace.setOnLongClickListener {
+            keypadClickEvent.postValue(KeypadKey.CLEAR)
+            true
+        }
     }
     // endregion
 

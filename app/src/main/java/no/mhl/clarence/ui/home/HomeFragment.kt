@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
 
     // region Keypad View Setup
     private fun setupKeypadView(keypadView: KeypadView) {
-        keypadView.keyPadClickEvent.observe(viewLifecycleOwner, Observer { key ->
+        keypadView.keypadClickEvent.observe(viewLifecycleOwner, Observer { key ->
             when (key) {
                 KeypadKey.ZERO -> currencyDisplayPrimary.appendValue("0")
                 KeypadKey.ONE -> currencyDisplayPrimary.appendValue("1")
@@ -79,6 +79,7 @@ class HomeFragment : Fragment() {
                 KeypadKey.NINE -> currencyDisplayPrimary.appendValue("9")
                 KeypadKey.DECIMAL -> currencyDisplayPrimary.appendValue(".")
                 KeypadKey.BACKSPACE -> currencyDisplayPrimary.backspaceValue()
+                KeypadKey.CLEAR -> currencyDisplayPrimary.clearValue()
                 else -> { }
             }
         })

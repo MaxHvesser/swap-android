@@ -12,5 +12,6 @@ enum class KeypadKey {
     EIGHT,
     NINE,
     DECIMAL,
-    BACKSPACE
+    BACKSPACE,
+    CLEAR
 }

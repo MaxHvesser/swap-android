@@ -10,13 +10,18 @@ import no.mhl.clarence.R
 class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
     // region View Properties
-    val value: TextView by lazy { findViewById<TextView>(R.id.currency_display_value) }
+    private val value: TextView by lazy { findViewById<TextView>(R.id.currency_display_value) }
     // endregion
 
     // region Initialisation
     init {
         View.inflate(context, R.layout.view_currency_display, this)
+        setupViews()
     }
+    // endregion
+
+    // region Setup Views
+    private fun setupViews() { }
     // endregion
 
     // region Value Text IO
@@ -34,6 +39,10 @@ class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout
         } else {
             value.text = value.text.substring(0, value.text.length -1)
         }
+    }
+
+    fun clearValue() {
+        value.text = "0"
     }
     // endregion
 

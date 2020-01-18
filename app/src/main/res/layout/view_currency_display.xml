@@ -57,6 +57,7 @@
         android:textColor="@color/textStrong"
         android:maxLines="1"
         android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/currency_display_name_container"
