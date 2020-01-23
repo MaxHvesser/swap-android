@@ -40,7 +40,7 @@
         android:id="@+id/currency_display_flag"
         android:layout_width="@dimen/currency_display_flag_size"
         android:layout_height="0dp"
-        android:src="@drawable/ic_flag_norway"
+        android:src="@drawable/ic_aud"
         app:layout_constraintTop_toTopOf="@id/currency_display_name_container"
         app:layout_constraintBottom_toBottomOf="@id/currency_display_name_container"
         app:layout_constraintEnd_toEndOf="parent"/>
