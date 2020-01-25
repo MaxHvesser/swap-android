@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundPrimary"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/backgroundPrimary">
 
     <!-- Search Bar -->
     <EditText
@@ -43,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@id/search_edit_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/row_item_currency"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

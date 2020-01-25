@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="no.mhl.clarence">
 
+    <!-- region Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- endregion -->
+
     <application
         android:name=".application.ClarenceApp"
         android:allowBackup="true"

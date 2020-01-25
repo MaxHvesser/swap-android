@@ -10,6 +10,10 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import no.mhl.clarence.R
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
@@ -36,6 +40,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         setupView(view)
+        preFetchLatestExchangeRates()
         return view
     }
 
@@ -83,6 +88,16 @@ class HomeFragment : Fragment() {
     // region Open Currency Selection
     private fun openCurrencySelection() {
         findNavController().navigate(R.id.action_homeFragment_to_currencySelectionFragment)
+    }
+    // endregion
+
+    // region Pre Fetching Exchange Rates
+    private fun preFetchLatestExchangeRates() {
+        GlobalScope.launch(Dispatchers.Main) {
+            homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
+                val t = it
+            })
+        }
     }
     // endregion
 
