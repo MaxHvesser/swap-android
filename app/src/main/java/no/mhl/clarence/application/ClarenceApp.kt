@@ -21,7 +21,8 @@ class ClarenceApp : Application() {
                     homeModule,
                     currencySelectionModule,
                     networkModule,
-                    exchangeRatesModule
+                    exchangeRatesModule,
+                    databaseModule
                 )
             )
         }

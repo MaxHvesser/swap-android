@@ -9,7 +9,7 @@ interface ExchangeRatesService {
 
     // region Fetch Latest Rates
     @GET(Constants.EXCHANGE_RATES_LATEST)
-    suspend fun fetchLatestExchangeRates() : Response<Latest>
+    suspend fun fetchLatestExchangeRates(): Latest
     // endregion
 
 }
