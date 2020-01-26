@@ -17,7 +17,7 @@ interface LatestRatesDao {
 
     // region Retrieval
     @Query("SELECT * from latest LIMIT 1")
-    fun fetchLatestRates(): LiveData<Latest>
+    fun fetchLatestRates(): Latest
     // endregion
 
 }
