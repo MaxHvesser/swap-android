@@ -1,12 +1,16 @@
 package no.mhl.clarence.ui.currencyselection
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +34,7 @@ class CurrencySelectionFragment : Fragment() {
     // region View Properties
     private lateinit var parent: ConstraintLayout
     private lateinit var currencyRecycler: RecyclerView
+    private lateinit var searchField: EditText
     // endregion
 
     // region Initialisation
@@ -53,9 +58,11 @@ class CurrencySelectionFragment : Fragment() {
     private fun setupViews(view: View) {
         parent = view.findViewById(R.id.parent)
         currencyRecycler = view.findViewById(R.id.currency_recycler)
+        searchField = view.findViewById(R.id.search_edit_text)
 
         setupViewInsets()
         setupCurrencyRecycler()
+        setupSearchField()
     }
 
     private fun setupViewInsets() {
@@ -75,6 +82,20 @@ class CurrencySelectionFragment : Fragment() {
             adapter = currencyRecyclerAdapter
             layoutManager = linearLayoutManager
         }
+    }
+    // endregion
+
+    // region Search Field Setup
+    private fun setupSearchField() {
+        searchField.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                currencyRecyclerAdapter.filter.filter(s)
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
+
+            override fun afterTextChanged(s: Editable?) { }
+        })
     }
     // endregion
 
