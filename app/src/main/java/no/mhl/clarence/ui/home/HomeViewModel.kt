@@ -1,9 +1,6 @@
 package no.mhl.clarence.ui.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.google.gson.JsonObject
-import no.mhl.clarence.data.remote.common.Resource
 import no.mhl.clarence.repository.ExchangeRatesRepository
 
 class HomeViewModel(
@@ -11,7 +8,7 @@ class HomeViewModel(
 ) : ViewModel() {
 
     // region Get Latest Rates
-    suspend fun downloadLatestExchangeRates(): LiveData<Resource<JsonObject>> =
+    suspend fun downloadLatestExchangeRates() =
         exchangeRatesRepository.fetchLatestExchangeRates()
     // endregion
 

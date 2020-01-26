@@ -1,15 +1,21 @@
 package no.mhl.clarence.data.remote.common
 
-import okhttp3.ResponseBody
+import no.mhl.clarence.data.remote.common.Status.SUCCESS
+import no.mhl.clarence.data.remote.common.Status.ERROR
+import no.mhl.clarence.data.remote.common.Status.LOADING
 
-data class Resource<out T>(val status: Status, val data: T?, val errorBody: ResponseBody?) {
+data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {
         fun <T> success(data: T?): Resource<T> {
-            return Resource(Status.SUCCESS, data, null)
+            return Resource(SUCCESS, data, null)
         }
 
-        fun <T> error(error: ResponseBody?, data: T?): Resource<T> {
-            return Resource(Status.ERROR, data, error)
+        fun <T> error(msg: String, data: T?): Resource<T> {
+            return Resource(ERROR, data, msg)
+        }
+
+        fun <T> loading(data: T?): Resource<T> {
+            return Resource(LOADING, data, null)
         }
     }
 }
