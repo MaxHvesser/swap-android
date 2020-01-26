@@ -58,10 +58,12 @@ class CurrencySelectionFragment : Fragment() {
     }
     // endregion
 
+    // region Fetch locally stored rates
     private fun fetchLocalRates() {
         currencySelectionViewModel.fetchRatesFromDatabase().observe(viewLifecycleOwner, Observer { latest ->
             val t = latest.rates
         })
     }
+    // endregion
 
 }
