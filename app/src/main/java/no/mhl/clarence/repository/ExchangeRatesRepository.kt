@@ -3,6 +3,7 @@ package no.mhl.clarence.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonObject
+import no.mhl.clarence.data.model.Latest
 import no.mhl.clarence.data.remote.ExchangeRatesService
 import no.mhl.clarence.data.remote.common.Resource
 import no.mhl.clarence.data.remote.common.Status
@@ -13,8 +14,8 @@ class ExchangeRatesRepository(
 ) {
 
     // region Fetch latest exchange rates from service
-    suspend fun fetchLatestExchangeRates(): LiveData<Resource<JsonObject>> {
-        val data = MutableLiveData<Resource<JsonObject>>()
+    suspend fun fetchLatestExchangeRates(): LiveData<Resource<Latest>> {
+        val data = MutableLiveData<Resource<Latest>>()
 
         try {
             val response = exchangeRatesService.fetchLatestExchangeRates()
