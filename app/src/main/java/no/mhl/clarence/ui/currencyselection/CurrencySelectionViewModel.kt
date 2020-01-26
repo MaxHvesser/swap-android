@@ -3,7 +3,6 @@ package no.mhl.clarence.ui.currencyselection
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import kotlinx.coroutines.Dispatchers
-import no.mhl.clarence.data.model.Latest
 import no.mhl.clarence.repository.ExchangeRatesRepository
 
 class CurrencySelectionViewModel(

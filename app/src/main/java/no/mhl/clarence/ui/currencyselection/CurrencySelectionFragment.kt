@@ -10,14 +10,11 @@ import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Currency
-import no.mhl.clarence.data.model.Rates
 import no.mhl.clarence.ui.currencyselection.adapter.CurrencyRecyclerAdapter
 import no.mhl.clarence.util.generateCurrencyList
 import org.koin.androidx.viewmodel.ext.android.viewModel

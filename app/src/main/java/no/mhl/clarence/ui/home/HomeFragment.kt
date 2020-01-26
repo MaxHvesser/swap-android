@@ -11,13 +11,11 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.Dispatchers
 import no.mhl.clarence.R
 import no.mhl.clarence.data.remote.common.Status
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadView
 import no.mhl.clarence.util.consumeKeyForDisplay
-import org.koin.androidx.scope.currentScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {

@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Currency
-import no.mhl.clarence.data.model.Rates
 
 class CurrencyItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
