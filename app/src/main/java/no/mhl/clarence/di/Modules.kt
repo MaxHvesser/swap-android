@@ -32,7 +32,7 @@ val homeModule = module {
 // region Currency Selection Module
 val currencySelectionModule = module {
     single { CurrencySelectionFragment() }
-    factory { CurrencySelectionViewModel() }
+    factory { CurrencySelectionViewModel(get()) }
 }
 // endregion
 

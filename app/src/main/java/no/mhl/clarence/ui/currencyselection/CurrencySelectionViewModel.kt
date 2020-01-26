@@ -10,7 +10,7 @@ class CurrencySelectionViewModel(
 ) : ViewModel() {
 
     // region Fetch locally stored rates
-    fun fetchRatesFromDatabase() = liveData<Latest> {
+    fun fetchRatesFromDatabase() = liveData {
         val latest = exchangeRatesRepository.fetchLocalLatestRates()
         emit(latest)
     }

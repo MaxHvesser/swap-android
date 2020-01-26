@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import no.mhl.clarence.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -29,6 +30,7 @@ class CurrencySelectionFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_currency_selection, container, false)
         setupViews(view)
+        fetchLocalRates()
         return view
     }
 
@@ -55,5 +57,11 @@ class CurrencySelectionFragment : Fragment() {
         }
     }
     // endregion
+
+    private fun fetchLocalRates() {
+        currencySelectionViewModel.fetchRatesFromDatabase().observe(viewLifecycleOwner, Observer { latest ->
+            val t = latest.rates
+        })
+    }
 
 }
