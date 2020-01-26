@@ -1,6 +1,7 @@
 package no.mhl.clarence.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -94,7 +95,7 @@ class HomeFragment : Fragment() {
         homeViewModel.downloadLatestExchangeRates.observe(viewLifecycleOwner, Observer { resource ->
             when (resource.status) {
                 Status.SUCCESS -> homeViewModel.storeLatestRates(resource.data)
-                Status.ERROR -> {}
+                Status.ERROR -> Log.i(tag, resource.message?: "Error")
             }
         })
     }
