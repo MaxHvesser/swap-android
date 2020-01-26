@@ -20,4 +20,9 @@ interface LatestRatesDao {
     fun fetchLatestRates(): Latest
     // endregion
 
+    // region Deletion
+    @Query("DELETE from latest")
+    fun dropAllLatest()
+    // endregion
+
 }

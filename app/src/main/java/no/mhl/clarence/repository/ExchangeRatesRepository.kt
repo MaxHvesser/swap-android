@@ -14,8 +14,10 @@ class ExchangeRatesRepository(
     // endregion
 
     // region Database IO
-    fun storeLatestRatesLocally(latest: Latest) =
+    fun storeLatestRatesLocally(latest: Latest) {
+        latestRatesDao.dropAllLatest()
         latestRatesDao.addLatestRates(latest)
+    }
 
     fun fetchLocalLatestRates() =
         latestRatesDao.fetchLatestRates()
