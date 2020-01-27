@@ -11,6 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import no.mhl.clarence.R
@@ -79,6 +81,10 @@ class CurrencySelectionFragment : Fragment() {
             adapter = currencyRecyclerAdapter
             layoutManager = linearLayoutManager
         }
+
+        currencyRecyclerAdapter.currencyClickEvent.observe(viewLifecycleOwner, Observer { currency ->
+            findNavController().popBackStack()
+        })
     }
     // endregion
 

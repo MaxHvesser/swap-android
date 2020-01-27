@@ -3,6 +3,7 @@ package no.mhl.clarence.ui.currencyselection.adapter.viewholder
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Currency
@@ -16,8 +17,9 @@ class CurrencyItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     // endregion
 
     // region View Details Setup
-    fun bind(currency: Currency) {
+    fun bind(currency: Currency, currencyClickEvent: MutableLiveData<Currency>) {
         setupRowDetails(currency)
+        itemView.setOnClickListener { currencyClickEvent.postValue(currency) }
     }
 
     private fun setupRowDetails(currency: Currency) {

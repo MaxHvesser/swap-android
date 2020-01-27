@@ -3,17 +3,22 @@ package no.mhl.clarence.ui.currencyselection.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filterable
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Currency
 import no.mhl.clarence.ui.currencyselection.adapter.viewholder.CurrencyItemViewHolder
 
 class CurrencyRecyclerAdapter(items: List<Currency>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
+    RecyclerView.Adapter<CurrencyItemViewHolder>(), Filterable {
 
     // region Filter
     val filteredCurrencies: MutableList<Currency> = mutableListOf()
     private val currencyFilter = CurrencyFilter(this, items)
+    // endregion
+
+    // region Click Exposure
+    val currencyClickEvent: MutableLiveData<Currency> = MutableLiveData()
     // endregion
 
     // region Initialisation
@@ -34,8 +39,8 @@ class CurrencyRecyclerAdapter(items: List<Currency>) :
     // endregion
 
     // region Binding
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as CurrencyItemViewHolder).bind(filteredCurrencies[position])
+    override fun onBindViewHolder(holder: CurrencyItemViewHolder, position: Int) {
+        holder.bind(filteredCurrencies[position], currencyClickEvent)
     }
     // endregion
 
