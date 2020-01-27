@@ -9,7 +9,7 @@
     android:paddingBottom="@dimen/regular"
     android:paddingStart="@dimen/medium"
     android:paddingEnd="@dimen/medium"
-    android:background="@color/backgroundPrimary">
+    android:background="@drawable/ripple_item_currency">
 
     <!-- Emoji Flag -->
     <ImageView
