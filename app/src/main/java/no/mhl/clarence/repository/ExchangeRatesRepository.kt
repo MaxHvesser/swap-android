@@ -10,7 +10,11 @@ class ExchangeRatesRepository(
 ) {
 
     // region Fetch latest exchange rates from service
-    suspend fun fetchLatestExchangeRates() = exchangeRatesService.fetchLatestExchangeRates()
+    suspend fun fetchLatestExchangeRates() =
+        exchangeRatesService.fetchLatestExchangeRates()
+
+    suspend fun fetchLatestExchangeRatesForBase(base: String) =
+        exchangeRatesService.fetchLatestExchangeRatesForBase(base)
     // endregion
 
     // region Database IO
@@ -19,8 +23,16 @@ class ExchangeRatesRepository(
         latestRatesDao.addLatestRates(latest)
     }
 
+    fun storeAllLatestRates(latestRates: List<Latest>) {
+        latestRatesDao.dropAllLatest()
+        latestRatesDao.addAllLatestRates(latestRates)
+    }
+
     fun fetchLocalLatestRates() =
         latestRatesDao.fetchLatestRates()
+
+    fun fetchLatestForBase(base: String) =
+        latestRatesDao.fetchLatestForBase(base)
     // endregion
 
 }

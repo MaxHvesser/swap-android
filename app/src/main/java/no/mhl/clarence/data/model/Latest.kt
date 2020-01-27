@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "latest")
 data class Latest(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     @Embedded
     val rates: Rates,

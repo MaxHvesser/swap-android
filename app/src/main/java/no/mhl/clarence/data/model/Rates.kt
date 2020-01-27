@@ -68,5 +68,7 @@ data class Rates(
     @SerializedName("KRW")
     val krw: Double,
     @SerializedName("MYR")
-    val myr: Double
+    val myr: Double,
+    @SerializedName("EUR")
+    val eur: Double
 )

@@ -100,11 +100,10 @@ class HomeFragment : Fragment() {
 
     // region Pre Fetching Exchange Rates
     private fun preFetchLatestExchangeRates() {
-        homeViewModel.downloadLatestExchangeRates.observe(viewLifecycleOwner, Observer { resource ->
-            when (resource.status) {
-                Status.SUCCESS -> homeViewModel.storeLatestRates(resource.data)
-                Status.ERROR -> Log.i(tag, resource.message?: "Error")
-            }
+        homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
+            homeViewModel.fetchLatestRatesForBase("NOK").observe(viewLifecycleOwner, Observer {
+                val t = it
+            })
         })
     }
     // endregion

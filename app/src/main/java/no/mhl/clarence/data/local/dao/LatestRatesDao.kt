@@ -13,11 +13,17 @@ interface LatestRatesDao {
     // region Insertion
     @Insert
     fun addLatestRates(latest: Latest)
+
+    @Insert
+    fun addAllLatestRates(latestRates: List<Latest>)
     // endregion
 
     // region Retrieval
-    @Query("SELECT * from latest LIMIT 1")
-    fun fetchLatestRates(): Latest
+    @Query("SELECT * from latest")
+    fun fetchLatestRates(): List<Latest>
+
+    @Query("SELECT * from latest WHERE base = :base")
+    fun fetchLatestForBase(base: String) : Latest
     // endregion
 
     // region Deletion
