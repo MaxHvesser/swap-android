@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import no.mhl.clarence.R
 import no.mhl.clarence.data.remote.common.Status
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
+import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.ui.views.keypad.KeypadView
 import no.mhl.clarence.util.consumeKeyForDisplay
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,6 +28,7 @@ class HomeFragment : Fragment() {
     // region View Properties
     private lateinit var keypadView: KeypadView
     private lateinit var currencyDisplayPrimary: CurrencyDisplay
+    private lateinit var currencyDisplaySecondary: CurrencyDisplay
     // endregion
 
     // region Initialisation
@@ -52,6 +54,7 @@ class HomeFragment : Fragment() {
     private fun setupView(view: View) {
         keypadView = view.findViewById(R.id.home_keypad_view)
         currencyDisplayPrimary = view.findViewById(R.id.home_currency_display_primary)
+        currencyDisplaySecondary = view.findViewById(R.id.home_currency_display_secondary)
 
         setupViewInsets(view.findViewById(R.id.home_keypad_parent))
         setupKeypadView(keypadView)
@@ -70,6 +73,13 @@ class HomeFragment : Fragment() {
     private fun setupKeypadView(keypadView: KeypadView) {
         keypadView.keypadClickEvent.observe(viewLifecycleOwner, Observer { key ->
             consumeKeyForDisplay(key, currencyDisplayPrimary)
+
+            if (key == KeypadKey.BACKSPACE) {
+                consumeKeyForDisplay(key, currencyDisplaySecondary)
+            } else {
+                currencyDisplaySecondary.appendValue("1")
+            }
+
         })
     }
     // endregion
