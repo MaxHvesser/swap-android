@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
 
     // region Properties
     private val homeViewModel: HomeViewModel by viewModel()
+    private lateinit var exchange: Exchange
     // endregion
 
     // region View Properties
@@ -104,10 +105,25 @@ class HomeFragment : Fragment() {
     // region Pre Fetching Exchange Rates
     private fun preFetchLatestExchangeRates() {
         homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
-            // Check if an Exchange exists
+            fetchCurrentExchangeIfAvailable()
+        })
+    }
 
-            // No? Create a default
-            defaultExchange()
+    private fun fetchCurrentExchangeIfAvailable() {
+        homeViewModel.fetchCurrentExchange().observe(viewLifecycleOwner, Observer { exchange ->
+            when {
+                exchange != null -> fetchCurrentExchange()
+                else -> {
+                    homeViewModel.storeDefaultExchange()
+                    fetchCurrentExchange()
+                }
+            }
+        })
+    }
+
+    private fun fetchCurrentExchange() {
+        homeViewModel.fetchCurrentExchange().observe(viewLifecycleOwner, Observer {
+            if (it != null) exchange = it
         })
     }
     // endregion
