@@ -18,6 +18,10 @@ class HomeViewModel(
     private val exchangeRatesRepository: ExchangeRatesRepository
 ) : ViewModel() {
 
+    init {
+        initNetworkRequest()
+    }
+
     // region Get Latest Rates
     fun downloadLatestExchangeRates() = liveData(Dispatchers.IO) {
         val rates: MutableList<Rate> = mutableListOf()
@@ -35,6 +39,22 @@ class HomeViewModel(
         emit(rates)
     }
     // endregion
+
+
+    private fun initNetworkRequest() = CoroutineScope(Dispatchers.IO).launch {
+        val rates: MutableList<Rate> = mutableListOf()
+
+        generateCurrencyList().forEach { currency ->
+            try {
+                val latest = exchangeRatesRepository.fetchLatestExchangeRatesForBase(currency.name)
+                rates.add(mapToRate(latest))
+            } catch (exception: Exception) {
+                Log.e("DownloadRates -> ", "Exception: ", exception)
+            }
+        }
+
+        storeAllRates(rates)
+    }
 
     // region Locally Store Rates
     private fun storeAllRates(rates: List<Rate>) = CoroutineScope(Dispatchers.IO).launch {

@@ -104,9 +104,10 @@ class HomeFragment : Fragment() {
 
     // region Pre Fetching Exchange Rates
     private fun preFetchLatestExchangeRates() {
-        homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
-            fetchCurrentExchangeIfAvailable()
-        })
+//        homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
+//            fetchCurrentExchangeIfAvailable()
+//        })
+        fetchCurrentExchangeIfAvailable()
     }
 
     private fun fetchCurrentExchangeIfAvailable() {
