@@ -3,7 +3,7 @@ package no.mhl.clarence.di
 import androidx.room.Room
 import no.mhl.clarence.application.Constants
 import no.mhl.clarence.data.local.ClarenceDatabase
-import no.mhl.clarence.data.local.dao.LatestRatesDao
+import no.mhl.clarence.data.local.dao.RateDao
 import no.mhl.clarence.data.remote.ExchangeRatesService
 import no.mhl.clarence.repository.ExchangeRatesRepository
 import no.mhl.clarence.ui.activity.MainViewModel
@@ -66,5 +66,5 @@ val databaseModule = module {
     factory { provideLatestRatesDao(get())  }
 }
 
-fun provideLatestRatesDao(database: ClarenceDatabase): LatestRatesDao = database.latestRatesDao()
+fun provideLatestRatesDao(database: ClarenceDatabase): RateDao = database.rateDao()
 // endregion

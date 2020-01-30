@@ -2,15 +2,24 @@ package no.mhl.clarence.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import no.mhl.clarence.data.local.dao.LatestRatesDao
-import no.mhl.clarence.data.model.Latest
+import androidx.room.TypeConverters
+import no.mhl.clarence.data.local.converters.Converters
+import no.mhl.clarence.data.local.dao.RateDao
+import no.mhl.clarence.data.model.Rate
 
 
-@Database(entities = [Latest::class], version = 1)
+@Database(
+    entities = [Rate::class],
+    version = 1,
+    exportSchema = false
+)
+@TypeConverters(
+    Converters::class
+)
 abstract class ClarenceDatabase : RoomDatabase() {
 
-    // region Latest Rates
-    abstract fun latestRatesDao(): LatestRatesDao
+    // region Rates
+    abstract fun rateDao(): RateDao
     // endregion
 
 }

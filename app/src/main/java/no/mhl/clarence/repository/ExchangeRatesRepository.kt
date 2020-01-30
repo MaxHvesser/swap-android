@@ -1,12 +1,12 @@
 package no.mhl.clarence.repository
 
-import no.mhl.clarence.data.local.dao.LatestRatesDao
-import no.mhl.clarence.data.model.Latest
+import no.mhl.clarence.data.local.dao.RateDao
+import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.data.remote.ExchangeRatesService
 
 class ExchangeRatesRepository(
     private val exchangeRatesService: ExchangeRatesService,
-    private val latestRatesDao: LatestRatesDao
+    private val rateDao: RateDao
 ) {
 
     // region Fetch latest exchange rates from service
@@ -18,21 +18,20 @@ class ExchangeRatesRepository(
     // endregion
 
     // region Database IO
-    fun storeLatestRatesLocally(latest: Latest) {
-        latestRatesDao.dropAllLatest()
-        latestRatesDao.addLatestRates(latest)
-    }
+    fun storeRateInDb(rate: Rate) =
+        rateDao.addRate(rate)
 
-    fun storeAllLatestRates(latestRates: List<Latest>) {
-        latestRatesDao.dropAllLatest()
-        latestRatesDao.addAllLatestRates(latestRates)
-    }
+    fun storeAllRatesInDb(rates: List<Rate>) =
+        rateDao.addAllRates(rates)
 
-    fun fetchLocalLatestRates() =
-        latestRatesDao.fetchLatestRates()
+    fun fetchAllRatesFromDb() =
+        rateDao.fetchRates()
 
-    fun fetchLatestForBase(base: String) =
-        latestRatesDao.fetchLatestForBase(base)
+    fun fetchRateForBaseFromDb(base: String) =
+        rateDao.fetchRateForBase(base)
+
+    fun deleteRatesFromDb() =
+        rateDao.dropAllRates()
     // endregion
 
 }

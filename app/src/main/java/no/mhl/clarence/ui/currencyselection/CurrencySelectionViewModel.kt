@@ -7,13 +7,4 @@ import no.mhl.clarence.repository.ExchangeRatesRepository
 
 class CurrencySelectionViewModel(
     private val exchangeRatesRepository: ExchangeRatesRepository
-) : ViewModel() {
-
-    // region Fetch locally stored rates
-    fun fetchRatesFromDatabase() = liveData(Dispatchers.IO) {
-        val latest = exchangeRatesRepository.fetchLocalLatestRates()
-        emit(latest)
-    }
-    // endregion
-
-}
+) : ViewModel()

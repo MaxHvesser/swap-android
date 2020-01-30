@@ -3,7 +3,6 @@ package no.mhl.clarence.data.remote
 import no.mhl.clarence.application.Constants
 import no.mhl.clarence.application.Constants.EXCHANGE_RATES_BASE_QUERY
 import no.mhl.clarence.data.model.Latest
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 

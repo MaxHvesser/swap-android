@@ -25,7 +25,7 @@ class CurrencySelectionFragment : Fragment() {
 
     // region Properties
     private val currencySelectionViewModel: CurrencySelectionViewModel by viewModel()
-    private val linearLayoutManager = LinearLayoutManager(context)
+    private val linearLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
     private val currencyRates: List<Currency> = generateCurrencyList()
     private val currencyRecyclerAdapter: CurrencyRecyclerAdapter = CurrencyRecyclerAdapter(currencyRates)
     // endregion

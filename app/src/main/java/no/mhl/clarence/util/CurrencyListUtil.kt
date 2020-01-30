@@ -35,5 +35,6 @@ fun generateCurrencyList(): List<Currency> = listOf(
     Currency(R.drawable.ic_thb, "THB", "Thai Baht"),
     Currency(R.drawable.ic_try, "TRY", "Turkish Lira"),
     Currency(R.drawable.ic_usd, "USD", "United States Dollars"),
-    Currency(R.drawable.ic_zar, "ZAR", "South African Rand")
+    Currency(R.drawable.ic_zar, "ZAR", "South African Rand"),
+    Currency(R.drawable.ic_aud, "EUR", "Euros")
 )
