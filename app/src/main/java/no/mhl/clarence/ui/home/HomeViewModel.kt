@@ -1,5 +1,6 @@
 package no.mhl.clarence.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import kotlinx.coroutines.CoroutineScope
@@ -25,8 +26,7 @@ class HomeViewModel(
                 val latest = exchangeRatesRepository.fetchLatestExchangeRatesForBase(currency.name)
                 rates.add(mapToRate(latest))
             } catch (exception: Exception) {
-                // TODO Log innit
-                val t = exception
+                Log.e("DownloadRates -> ", "Exception: ", exception)
             }
         }
 
@@ -36,7 +36,7 @@ class HomeViewModel(
     // endregion
 
     // region Locally Store Rates
-    fun storeAllRates(rates: List<Rate>) = CoroutineScope(Dispatchers.IO).launch {
+    private fun storeAllRates(rates: List<Rate>) = CoroutineScope(Dispatchers.IO).launch {
         exchangeRatesRepository.deleteRatesFromDb()
         exchangeRatesRepository.storeAllRatesInDb(rates)
     }
