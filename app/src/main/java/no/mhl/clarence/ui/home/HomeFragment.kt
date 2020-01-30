@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import no.mhl.clarence.R
+import no.mhl.clarence.data.model.Currency
+import no.mhl.clarence.data.model.Exchange
+import no.mhl.clarence.data.model.defaultExchange
 import no.mhl.clarence.data.remote.common.Status
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
@@ -100,14 +103,11 @@ class HomeFragment : Fragment() {
 
     // region Pre Fetching Exchange Rates
     private fun preFetchLatestExchangeRates() {
-//        homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
-//            homeViewModel.fetchLatestRatesForBase("NOK").observe(viewLifecycleOwner, Observer {
-//                val t = it
-//            })
-//        })
-
         homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
-            val t = it
+            // Check if an Exchange exists
+
+            // No? Create a default
+            defaultExchange()
         })
     }
     // endregion

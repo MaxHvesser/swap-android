@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import no.mhl.clarence.data.local.converters.Converters
+import no.mhl.clarence.data.local.dao.ExchangeDao
 import no.mhl.clarence.data.local.dao.RateDao
 import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
@@ -24,6 +25,10 @@ abstract class ClarenceDatabase : RoomDatabase() {
 
     // region Rates
     abstract fun rateDao(): RateDao
+    // endregion
+
+    // region Exchange
+    abstract fun exchangeDao(): ExchangeDao
     // endregion
 
 }

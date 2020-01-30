@@ -3,6 +3,7 @@ package no.mhl.clarence.di
 import androidx.room.Room
 import no.mhl.clarence.application.Constants
 import no.mhl.clarence.data.local.ClarenceDatabase
+import no.mhl.clarence.data.local.dao.ExchangeDao
 import no.mhl.clarence.data.local.dao.RateDao
 import no.mhl.clarence.data.remote.ExchangeRatesService
 import no.mhl.clarence.repository.ExchangeRatesRepository
@@ -56,15 +57,18 @@ fun provideExchangeRatesService(retrofit: Retrofit): ExchangeRatesService =
 
 // region Exchange Rates Module
 val exchangeRatesModule = module {
-    factory { ExchangeRatesRepository(get(), get()) }
+    factory { ExchangeRatesRepository(get(), get(), get()) }
 }
 // endregion
 
 // region Database Module
 val databaseModule = module {
     single { Room.databaseBuilder(get(), ClarenceDatabase::class.java, "clarence-db").build() }
-    factory { provideLatestRatesDao(get())  }
+    factory { provideRateDao(get())  }
+    factory { provideExchangeDao(get())  }
 }
 
-fun provideLatestRatesDao(database: ClarenceDatabase): RateDao = database.rateDao()
+fun provideRateDao(database: ClarenceDatabase): RateDao = database.rateDao()
+
+fun provideExchangeDao(database: ClarenceDatabase): ExchangeDao = database.exchangeDao()
 // endregion

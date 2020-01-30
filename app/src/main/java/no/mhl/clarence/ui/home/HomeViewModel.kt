@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import no.mhl.clarence.data.local.converters.Converters
 import no.mhl.clarence.data.model.Rate
+import no.mhl.clarence.data.model.defaultExchange
 import no.mhl.clarence.data.model.mapToRate
 import no.mhl.clarence.repository.ExchangeRatesRepository
 import no.mhl.clarence.util.generateCurrencyList
@@ -39,6 +40,16 @@ class HomeViewModel(
     private fun storeAllRates(rates: List<Rate>) = CoroutineScope(Dispatchers.IO).launch {
         exchangeRatesRepository.deleteRatesFromDb()
         exchangeRatesRepository.storeAllRatesInDb(rates)
+    }
+    // endregion
+
+    // region Store and fetch exchange
+    fun fetchCurrentExchange() = liveData(Dispatchers.IO) {
+        emit(exchangeRatesRepository.fetchExchangeFromDb())
+    }
+
+    fun storeDefaultExchange() = CoroutineScope(Dispatchers.IO).launch {
+        exchangeRatesRepository.storeExchangeInDb(defaultExchange())
     }
     // endregion
 

@@ -18,11 +18,11 @@ interface RateDao {
     // endregion
 
     // region Retrieval
-    @Query("SELECT * from rate")
+    @Query("SELECT * FROM rate")
     fun fetchRates(): List<Rate>
 
-    @Query("SELECT * from rate WHERE base = :base LIMIT 1")
-    fun fetchRateForBase(base: String) : Rate
+    @Query("SELECT * FROM rate WHERE base = :base LIMIT 1")
+    fun fetchRateForBase(base: String) : Rate?
     // endregion
 
     // region Deletion
