@@ -57,6 +57,12 @@ class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout
     fun clearValue() {
         value.text = "0"
     }
+
+    fun setText(text: String) {
+        value.text = text
+    }
+
+    fun getText() = value.text.toString()
     // endregion
 
 }

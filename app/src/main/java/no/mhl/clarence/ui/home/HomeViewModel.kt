@@ -58,6 +58,10 @@ class HomeViewModel(
     private fun storeDefaultExchange() = CoroutineScope(Dispatchers.IO).launch {
         exchangeRatesRepository.storeExchangeInDb(defaultExchange())
     }
+
+    fun fetchRateForBase(base: String) = liveData(Dispatchers.IO) {
+        emit(exchangeRatesRepository.fetchRateForBaseFromDb(base))
+    }
     // endregion
 
 }

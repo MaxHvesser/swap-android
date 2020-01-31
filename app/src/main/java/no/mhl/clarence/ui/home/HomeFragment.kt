@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Exchange
+import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
@@ -21,6 +22,7 @@ class HomeFragment : Fragment() {
     // region Properties
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var exchange: Exchange
+    private lateinit var ratesForExchange: Rate
     // endregion
 
     // region View Properties
@@ -71,7 +73,7 @@ class HomeFragment : Fragment() {
             if (key == KeypadKey.BACKSPACE) {
                 consumeKeyForDisplay(key, binding.homeCurrencyDisplaySecondary)
             } else {
-                binding.homeCurrencyDisplaySecondary.appendValue("1")
+                convertCurrency()
             }
 
         })
@@ -80,9 +82,11 @@ class HomeFragment : Fragment() {
 
     // region Currency Display Setup
     private fun setupCurrencyDisplayPrimary() {
-        binding.homeCurrencyDisplayPrimary.currencySelectionClick.observe(viewLifecycleOwner, Observer {
-            openCurrencySelection()
-        })
+        binding.homeCurrencyDisplayPrimary.currencySelectionClick.observe(
+            viewLifecycleOwner,
+            Observer {
+                openCurrencySelection()
+            })
     }
     // endregion
 
@@ -94,8 +98,28 @@ class HomeFragment : Fragment() {
 
     // region Pre Fetching Exchange Rates
     private fun fetchCurrentExchange() {
-        homeViewModel.fetchCurrentExchange()
-            .observe(viewLifecycleOwner, Observer { if (it != null) exchange = it })
+        homeViewModel.fetchCurrentExchange().observe(viewLifecycleOwner, Observer {
+            if (it != null)  {
+                exchange = it
+                fetchRateForBase()
+            }
+        })
+    }
+
+    private fun fetchRateForBase() {
+        homeViewModel.fetchRateForBase(exchange.from.name).observe(viewLifecycleOwner, Observer {
+            if (it != null) ratesForExchange = it
+        })
+    }
+    // endregion
+
+    // region Exchange Conversion
+    private fun convertCurrency() {
+        val currencyValue = ratesForExchange.values.find { it.name == "NOK" }
+        currencyValue?.let {
+            val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toInt() * it.value
+            binding.homeCurrencyDisplaySecondary.setText(exchangeValue.toString())
+        }
     }
     // endregion
 
