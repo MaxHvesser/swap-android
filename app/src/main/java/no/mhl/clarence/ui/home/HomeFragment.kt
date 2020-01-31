@@ -16,6 +16,7 @@ import no.mhl.clarence.data.model.Currency
 import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.defaultExchange
 import no.mhl.clarence.data.remote.common.Status
+import no.mhl.clarence.databinding.FragmentHomeBinding
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.ui.views.keypad.KeypadView
@@ -30,9 +31,7 @@ class HomeFragment : Fragment() {
     // endregion
 
     // region View Properties
-    private lateinit var keypadView: KeypadView
-    private lateinit var currencyDisplayPrimary: CurrencyDisplay
-    private lateinit var currencyDisplaySecondary: CurrencyDisplay
+    private lateinit var binding: FragmentHomeBinding
     // endregion
 
     // region Initialisation
@@ -41,10 +40,12 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        setupView(view)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        setupView()
         fetchCurrentExchange()
-        return view
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,18 +56,14 @@ class HomeFragment : Fragment() {
     // endregion
 
     // region View Setup
-    private fun setupView(view: View) {
-        keypadView = view.findViewById(R.id.home_keypad_view)
-        currencyDisplayPrimary = view.findViewById(R.id.home_currency_display_primary)
-        currencyDisplaySecondary = view.findViewById(R.id.home_currency_display_secondary)
-
-        setupViewInsets(view.findViewById(R.id.home_keypad_parent))
-        setupKeypadView(keypadView)
+    private fun setupView() {
+        setupViewInsets()
+        setupKeypadView()
         setupCurrencyDisplayPrimary()
     }
 
-    private fun setupViewInsets(keypadParent: ConstraintLayout) {
-        ViewCompat.setOnApplyWindowInsetsListener(keypadParent) { v, insets ->
+    private fun setupViewInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.homeKeypadParent) { v, insets ->
             v.updatePadding(bottom = insets.systemWindowInsetBottom)
             insets
         }
@@ -74,14 +71,14 @@ class HomeFragment : Fragment() {
     // endregion
 
     // region Keypad View Setup
-    private fun setupKeypadView(keypadView: KeypadView) {
-        keypadView.keypadClickEvent.observe(viewLifecycleOwner, Observer { key ->
-            consumeKeyForDisplay(key, currencyDisplayPrimary)
+    private fun setupKeypadView() {
+        binding.homeKeypadView.keypadClickEvent.observe(viewLifecycleOwner, Observer { key ->
+            consumeKeyForDisplay(key, binding.homeCurrencyDisplayPrimary)
 
             if (key == KeypadKey.BACKSPACE) {
-                consumeKeyForDisplay(key, currencyDisplaySecondary)
+                consumeKeyForDisplay(key, binding.homeCurrencyDisplaySecondary)
             } else {
-                currencyDisplaySecondary.appendValue("1")
+                binding.homeCurrencyDisplaySecondary.appendValue("1")
             }
 
         })
@@ -90,7 +87,7 @@ class HomeFragment : Fragment() {
 
     // region Currency Display Setup
     private fun setupCurrencyDisplayPrimary() {
-        currencyDisplayPrimary.currencySelectionClick.observe(viewLifecycleOwner, Observer {
+        binding.homeCurrencyDisplayPrimary.currencySelectionClick.observe(viewLifecycleOwner, Observer {
             openCurrencySelection()
         })
     }
