@@ -1,25 +1,18 @@
 package no.mhl.clarence.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import no.mhl.clarence.R
-import no.mhl.clarence.data.model.Currency
 import no.mhl.clarence.data.model.Exchange
-import no.mhl.clarence.data.model.defaultExchange
-import no.mhl.clarence.data.remote.common.Status
 import no.mhl.clarence.databinding.FragmentHomeBinding
-import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
-import no.mhl.clarence.ui.views.keypad.KeypadView
 import no.mhl.clarence.util.consumeKeyForDisplay
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -40,7 +33,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(layoutInflater)
+        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         setupView()
         fetchCurrentExchange()

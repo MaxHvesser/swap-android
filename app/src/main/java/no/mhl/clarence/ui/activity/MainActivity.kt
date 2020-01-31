@@ -6,6 +6,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import no.mhl.clarence.R
+import no.mhl.clarence.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -15,13 +16,14 @@ class MainActivity : AppCompatActivity() {
     // endregion
 
     // region View Properties
-    private val viewParent by lazy { findViewById<ConstraintLayout>(R.id.main_parent) }
+    private lateinit var binding: ActivityMainBinding
     // endregion
 
     // region Initialisation
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupEdgeToEdge()
     }
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     // region View Setup
     private fun setupEdgeToEdge() {
-        viewParent.systemUiVisibility =
+        binding.mainParent.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
     }
     // endregion
