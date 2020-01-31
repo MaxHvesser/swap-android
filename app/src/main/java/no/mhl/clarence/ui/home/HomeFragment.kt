@@ -115,10 +115,12 @@ class HomeFragment : Fragment() {
 
     // region Exchange Conversion
     private fun convertCurrency() {
-        val currencyValue = ratesForExchange.values.find { it.name == "NOK" }
-        currencyValue?.let {
-            val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toInt() * it.value
-            binding.homeCurrencyDisplaySecondary.setText(exchangeValue.toString())
+        if (::ratesForExchange.isInitialized) {
+            val currencyValue = ratesForExchange.values.find { it.name == "NOK" }
+            currencyValue?.let {
+                val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toInt() * it.value
+                binding.homeCurrencyDisplaySecondary.setText(exchangeValue.toString())
+            }
         }
     }
     // endregion

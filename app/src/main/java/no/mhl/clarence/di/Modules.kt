@@ -63,7 +63,7 @@ val exchangeRatesModule = module {
 
 // region Database Module
 val databaseModule = module {
-    single { Room.databaseBuilder(get(), ClarenceDatabase::class.java, "clarence-db").build() }
+    single { Room.databaseBuilder(get(), ClarenceDatabase::class.java, "clarence-db").fallbackToDestructiveMigration().build() }
     factory { provideRateDao(get())  }
     factory { provideExchangeDao(get())  }
 }

@@ -15,7 +15,7 @@ import no.mhl.clarence.data.model.Rate
         Rate::class,
         Exchange::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(
