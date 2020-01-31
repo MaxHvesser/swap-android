@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         setupView(view)
-        preFetchLatestExchangeRates()
+        fetchCurrentExchange()
         return view
     }
 
@@ -103,29 +103,9 @@ class HomeFragment : Fragment() {
     // endregion
 
     // region Pre Fetching Exchange Rates
-    private fun preFetchLatestExchangeRates() {
-//        homeViewModel.downloadLatestExchangeRates().observe(viewLifecycleOwner, Observer {
-//            fetchCurrentExchangeIfAvailable()
-//        })
-        fetchCurrentExchangeIfAvailable()
-    }
-
-    private fun fetchCurrentExchangeIfAvailable() {
-        homeViewModel.fetchCurrentExchange().observe(viewLifecycleOwner, Observer { exchange ->
-            when {
-                exchange != null -> fetchCurrentExchange()
-                else -> {
-                    homeViewModel.storeDefaultExchange()
-                    fetchCurrentExchange()
-                }
-            }
-        })
-    }
-
     private fun fetchCurrentExchange() {
-        homeViewModel.fetchCurrentExchange().observe(viewLifecycleOwner, Observer {
-            if (it != null) exchange = it
-        })
+        homeViewModel.fetchCurrentExchange()
+            .observe(viewLifecycleOwner, Observer { if (it != null) exchange = it })
     }
     // endregion
 

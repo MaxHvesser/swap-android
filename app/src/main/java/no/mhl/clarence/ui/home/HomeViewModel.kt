@@ -18,30 +18,12 @@ class HomeViewModel(
     private val exchangeRatesRepository: ExchangeRatesRepository
 ) : ViewModel() {
 
-    init {
-        initNetworkRequest()
-    }
-
-    // region Get Latest Rates
-    fun downloadLatestExchangeRates() = liveData(Dispatchers.IO) {
-        val rates: MutableList<Rate> = mutableListOf()
-
-        generateCurrencyList().forEach { currency ->
-            try {
-                val latest = exchangeRatesRepository.fetchLatestExchangeRatesForBase(currency.name)
-                rates.add(mapToRate(latest))
-            } catch (exception: Exception) {
-                Log.e("DownloadRates -> ", "Exception: ", exception)
-            }
-        }
-
-        storeAllRates(rates)
-        emit(rates)
-    }
+    // region Initialisation
+    init { downloadLatestExchangeRates() }
     // endregion
 
-
-    private fun initNetworkRequest() = CoroutineScope(Dispatchers.IO).launch {
+    // region Get Latest Rates
+    private fun downloadLatestExchangeRates() = CoroutineScope(Dispatchers.IO).launch {
         val rates: MutableList<Rate> = mutableListOf()
 
         generateCurrencyList().forEach { currency ->
@@ -55,6 +37,7 @@ class HomeViewModel(
 
         storeAllRates(rates)
     }
+    // endregion
 
     // region Locally Store Rates
     private fun storeAllRates(rates: List<Rate>) = CoroutineScope(Dispatchers.IO).launch {
@@ -65,10 +48,14 @@ class HomeViewModel(
 
     // region Store and fetch exchange
     fun fetchCurrentExchange() = liveData(Dispatchers.IO) {
-        emit(exchangeRatesRepository.fetchExchangeFromDb())
+        var exchange = exchangeRatesRepository.fetchExchangeFromDb()
+        exchange ?: storeDefaultExchange()
+        exchange = exchangeRatesRepository.fetchExchangeFromDb()
+
+        emit(exchange)
     }
 
-    fun storeDefaultExchange() = CoroutineScope(Dispatchers.IO).launch {
+    private fun storeDefaultExchange() = CoroutineScope(Dispatchers.IO).launch {
         exchangeRatesRepository.storeExchangeInDb(defaultExchange())
     }
     // endregion
