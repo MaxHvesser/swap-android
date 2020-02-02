@@ -12,6 +12,7 @@ fun generateCurrencyList(): List<Currency> = listOf(
     Currency(R.drawable.ic_cny, "CNY", "Chinese Yuan"),
     Currency(R.drawable.ic_czk, "CZK", "Czech Koruna"),
     Currency(R.drawable.ic_dkk, "DKK", "Danish Kroner"),
+    Currency(R.drawable.ic_eur, "EUR", "Euros"),
     Currency(R.drawable.ic_gbp, "GBP", "Great British Pounds"),
     Currency(R.drawable.ic_hkd, "HKD", "Hong Kong Dollars"),
     Currency(R.drawable.ic_hrk, "HRK", "Croatian Kuna"),
@@ -35,6 +36,5 @@ fun generateCurrencyList(): List<Currency> = listOf(
     Currency(R.drawable.ic_thb, "THB", "Thai Baht"),
     Currency(R.drawable.ic_try, "TRY", "Turkish Lira"),
     Currency(R.drawable.ic_usd, "USD", "United States Dollars"),
-    Currency(R.drawable.ic_zar, "ZAR", "South African Rand"),
-    Currency(R.drawable.ic_aud, "EUR", "Euros")
+    Currency(R.drawable.ic_zar, "ZAR", "South African Rand")
 )
