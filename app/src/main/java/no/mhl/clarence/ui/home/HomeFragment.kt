@@ -15,6 +15,7 @@ import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
 import no.mhl.clarence.ui.views.keypad.KeypadKey
+import no.mhl.clarence.ui.views.snackbar.makeClarenceSnackbar
 import no.mhl.clarence.util.consumeKeyForDisplay
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -110,8 +111,8 @@ class HomeFragment : Fragment() {
 
     private fun fetchCurrentExchange() {
         homeViewModel.fetchCurrentExchange().observe(viewLifecycleOwner, Observer {
-            if (it != null) {
-                exchange = it
+            it?.let { exchange ->
+                this.exchange = exchange
                 fetchRateForBase()
             }
         })
@@ -119,8 +120,8 @@ class HomeFragment : Fragment() {
 
     private fun fetchRateForBase() {
         homeViewModel.fetchRateForBase(exchange.from.name).observe(viewLifecycleOwner, Observer {
-            if (it != null)  {
-                ratesForExchange = it
+            it?.let { rate ->
+                ratesForExchange = rate
                 snackbar.dismiss()
             }
         })
@@ -129,7 +130,7 @@ class HomeFragment : Fragment() {
 
     // region Snackbar
     private fun setupLoadingSnackbar() {
-        snackbar = Snackbar.make(binding.homeSnackbarContainer, "Downloading latest currencies", Snackbar.LENGTH_INDEFINITE)
+        snackbar = makeClarenceSnackbar(binding.homeSnackbarContainer, "Downloading latest currencies", Snackbar.LENGTH_INDEFINITE)
         snackbar.show()
     }
     // endregion
