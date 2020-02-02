@@ -1,6 +1,7 @@
 package no.mhl.clarence.ui.home
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import kotlinx.coroutines.CoroutineScope
@@ -19,11 +20,18 @@ class HomeViewModel(
 ) : ViewModel() {
 
     // region Initialisation
-    init { downloadLatestExchangeRates() }
+    init {
+        downloadLatestExchangeRates()
+    }
+    // endregion
+
+    // region Download Status
+    val ratesDownloading = MutableLiveData<Int>()
     // endregion
 
     // region Get Latest Rates
     private fun downloadLatestExchangeRates() = CoroutineScope(Dispatchers.IO).launch {
+        ratesDownloading.postValue(0)
         val rates: MutableList<Rate> = mutableListOf()
 
         generateCurrencyList().forEach { currency ->
@@ -41,18 +49,25 @@ class HomeViewModel(
 
     // region Locally Store Rates
     private fun storeAllRates(rates: List<Rate>) = CoroutineScope(Dispatchers.IO).launch {
-        exchangeRatesRepository.deleteRatesFromDb()
-        exchangeRatesRepository.storeAllRatesInDb(rates)
+        when (exchangeRatesRepository.ratesCount()) {
+            0 -> exchangeRatesRepository.storeAllRatesInDb(rates)
+            else -> exchangeRatesRepository.updateRates(rates)
+        }
+        ratesDownloading.postValue(1)
     }
     // endregion
 
     // region Store and fetch exchange
     fun fetchCurrentExchange() = liveData(Dispatchers.IO) {
-        var exchange = exchangeRatesRepository.fetchExchangeFromDb()
-        exchange ?: storeDefaultExchange()
-        exchange = exchangeRatesRepository.fetchExchangeFromDb()
-
-        emit(exchange)
+        emit(
+            when (exchangeRatesRepository.exchangeCount()) {
+                0 -> {
+                    storeDefaultExchange()
+                    exchangeRatesRepository.fetchExchangeFromDb()
+                }
+                else -> exchangeRatesRepository.fetchExchangeFromDb()
+            }
+        )
     }
 
     private fun storeDefaultExchange() = CoroutineScope(Dispatchers.IO).launch {

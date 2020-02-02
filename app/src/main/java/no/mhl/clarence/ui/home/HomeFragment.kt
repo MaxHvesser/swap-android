@@ -9,6 +9,7 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
@@ -23,6 +24,7 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var exchange: Exchange
     private lateinit var ratesForExchange: Rate
+    private lateinit var snackbar: Snackbar
     // endregion
 
     // region View Properties
@@ -38,7 +40,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         setupView()
-        fetchCurrentExchange()
+        listenForDownload()
 
         return binding.root
     }
@@ -96,10 +98,19 @@ class HomeFragment : Fragment() {
     }
     // endregion
 
-    // region Pre Fetching Exchange Rates
+    // region Data Setup
+    private fun listenForDownload() {
+        homeViewModel.ratesDownloading.observe(viewLifecycleOwner, Observer { status ->
+            when (status) {
+                0 -> setupLoadingSnackbar()
+                1 -> fetchCurrentExchange()
+            }
+        })
+    }
+
     private fun fetchCurrentExchange() {
         homeViewModel.fetchCurrentExchange().observe(viewLifecycleOwner, Observer {
-            if (it != null)  {
+            if (it != null) {
                 exchange = it
                 fetchRateForBase()
             }
@@ -108,8 +119,18 @@ class HomeFragment : Fragment() {
 
     private fun fetchRateForBase() {
         homeViewModel.fetchRateForBase(exchange.from.name).observe(viewLifecycleOwner, Observer {
-            if (it != null) ratesForExchange = it
+            if (it != null)  {
+                ratesForExchange = it
+                snackbar.dismiss()
+            }
         })
+    }
+    // endregion
+
+    // region Snackbar
+    private fun setupLoadingSnackbar() {
+        snackbar = Snackbar.make(binding.homeSnackbarContainer, "Downloading latest currencies", Snackbar.LENGTH_INDEFINITE)
+        snackbar.show()
     }
     // endregion
 
@@ -118,7 +139,7 @@ class HomeFragment : Fragment() {
         if (::ratesForExchange.isInitialized) {
             val currencyValue = ratesForExchange.values.find { it.name == "NOK" }
             currencyValue?.let {
-                val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toInt() * it.value
+                val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toFloat() * it.value
                 binding.homeCurrencyDisplaySecondary.setText(exchangeValue.toString())
             }
         }

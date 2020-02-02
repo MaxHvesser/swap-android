@@ -44,6 +44,15 @@ class ExchangeRatesRepository(
 
     fun deleteExchangeFromDb() =
         exchangeDao.dropExchange()
+
+    fun exchangeCount() =
+        exchangeDao.count()
+
+    fun ratesCount() =
+        rateDao.count()
+
+    fun updateRates(rates: List<Rate>) =
+        rateDao.updateAllRates(rates)
     // endregion
 
 }
