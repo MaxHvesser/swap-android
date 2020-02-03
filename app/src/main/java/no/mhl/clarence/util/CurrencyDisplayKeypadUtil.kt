@@ -15,7 +15,14 @@ fun consumeKeyForDisplay(key: KeypadKey, display: CurrencyDisplay) {
         KeypadKey.SEVEN -> display.appendValue("7")
         KeypadKey.EIGHT -> display.appendValue("8")
         KeypadKey.NINE -> display.appendValue("9")
-        KeypadKey.DECIMAL -> display.appendValue(".")
+        KeypadKey.DECIMAL -> {
+            val currentText = display.getText()
+            when {
+                currentText.contains(".") -> return
+                currentText == "0" -> display.appendValue("0.")
+                else -> display.appendValue(".")
+            }
+        }
         KeypadKey.BACKSPACE -> display.backspaceValue()
         KeypadKey.CLEAR -> display.clearValue()
     }
