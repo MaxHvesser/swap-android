@@ -1,4 +1,4 @@
-package no.mhl.clarence.ui.activity
+package no.mhl.clarence.ui.main
 
 import androidx.lifecycle.ViewModel
 

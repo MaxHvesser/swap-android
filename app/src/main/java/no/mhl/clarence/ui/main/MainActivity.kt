@@ -1,9 +1,8 @@
-package no.mhl.clarence.ui.activity
+package no.mhl.clarence.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import no.mhl.clarence.R
 import no.mhl.clarence.databinding.ActivityMainBinding

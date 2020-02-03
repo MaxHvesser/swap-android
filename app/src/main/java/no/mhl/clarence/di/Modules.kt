@@ -7,15 +7,22 @@ import no.mhl.clarence.data.local.dao.ExchangeDao
 import no.mhl.clarence.data.local.dao.RateDao
 import no.mhl.clarence.data.remote.ExchangeRatesService
 import no.mhl.clarence.repository.ExchangeRatesRepository
-import no.mhl.clarence.ui.activity.MainViewModel
+import no.mhl.clarence.ui.main.MainViewModel
 import no.mhl.clarence.ui.currencyselection.CurrencySelectionFragment
 import no.mhl.clarence.ui.currencyselection.CurrencySelectionViewModel
 import no.mhl.clarence.ui.home.HomeFragment
 import no.mhl.clarence.ui.home.HomeViewModel
+import no.mhl.clarence.ui.splash.SplashViewModel
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+// region Splash Module
+val splashModule = module {
+    factory { SplashViewModel() }
+}
+// endregion
 
 // region Main Module
 val mainModule = module {

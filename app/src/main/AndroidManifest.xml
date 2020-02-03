@@ -18,14 +18,19 @@
         android:fullBackupContent="true">
 
         <!-- region Activities -->
-        <!-- Home Activity -->
-        <activity android:name=".ui.activity.MainActivity">
+        <!-- Splash Activity -->
+        <activity
+            android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Home Activity -->
+        <activity
+            android:name=".ui.main.MainActivity"/>
         <!-- endregion -->
 
     </application>

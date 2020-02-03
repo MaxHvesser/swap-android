@@ -17,6 +17,7 @@ class ClarenceApp : Application() {
             androidContext(this@ClarenceApp)
             modules(
                 listOf(
+                    splashModule,
                     mainModule,
                     homeModule,
                     currencySelectionModule,
