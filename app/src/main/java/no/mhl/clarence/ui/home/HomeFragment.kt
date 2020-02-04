@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         setupView()
-        listenForDownload()
+        //listenForDownload()
 
         return binding.root
     }

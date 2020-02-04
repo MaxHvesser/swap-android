@@ -3,6 +3,7 @@ package no.mhl.clarence.ui.splash
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -27,17 +28,25 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        startMainActivity()
+        observeRatesDownloadStatus()
     }
     // endregion
 
     // region View Setup
+    private fun observeRatesDownloadStatus() {
+        splashViewModel.downloadStatus.observe(this, Observer {  status ->
+            when (status) {
+                1 -> startMainActivity()
+            }
+        })
+    }
+    // endregion
+
+    // region Start Main Activity
     private fun startMainActivity() {
-        CoroutineScope(Dispatchers.Main).launch {
-            delay(5000)
-            startActivity(Intent(baseContext, MainActivity::class.java))
-            finish()
-        }
+        startActivity(Intent(baseContext, MainActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
     // endregion
 

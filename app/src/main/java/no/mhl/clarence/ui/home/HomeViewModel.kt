@@ -21,7 +21,7 @@ class HomeViewModel(
 
     // region Initialisation
     init {
-        downloadLatestExchangeRates()
+        //downloadLatestExchangeRates()
     }
     // endregion
 

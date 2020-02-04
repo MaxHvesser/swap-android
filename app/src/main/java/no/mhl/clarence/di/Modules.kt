@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 // region Splash Module
 val splashModule = module {
-    factory { SplashViewModel() }
+    factory { SplashViewModel(get()) }
 }
 // endregion
 
