@@ -38,6 +38,16 @@ class SplashViewModel(
             }
         }
 
+        storeAllRates(rates)
+    }
+    // endregion
+
+    // region Store Rates
+    private fun storeAllRates(rates: List<Rate>) = CoroutineScope(Dispatchers.IO).launch {
+        when (exchangeRatesRepository.ratesCount()) {
+            0 -> exchangeRatesRepository.storeAllRatesInDb(rates)
+            else -> exchangeRatesRepository.updateRates(rates)
+        }
         downloadStatus.postValue(1)
     }
     // endregion
