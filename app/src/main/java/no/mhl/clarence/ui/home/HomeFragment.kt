@@ -110,6 +110,7 @@ class HomeFragment : Fragment() {
         homeViewModel.fetchRateForBase(exchange.from.name).observe(viewLifecycleOwner, Observer {
             it?.let { rate ->
                 ratesForExchange = rate
+                setupCurrencyDetails()
             }
         })
     }
@@ -118,12 +119,21 @@ class HomeFragment : Fragment() {
     // region Exchange Conversion
     private fun convertCurrency() {
         if (::ratesForExchange.isInitialized) {
-            val currencyValue = ratesForExchange.values.find { it.name == "NOK" }
+            val currencyValue = ratesForExchange.values.find { it.name == exchange.to.name }
             currencyValue?.let {
                 val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toFloat() * it.value
                 binding.homeCurrencyDisplaySecondary.setText(exchangeValue.toString())
             }
         }
+    }
+    // endregion
+
+    // region Setup Currency Details
+    private fun setupCurrencyDetails() {
+        binding.homeCurrencyDisplayPrimary.setName(exchange.from.name)
+        binding.homeCurrencyDisplayPrimary.setFlagResource(exchange.from.flag)
+        binding.homeCurrencyDisplaySecondary.setName(exchange.to.name)
+        binding.homeCurrencyDisplaySecondary.setFlagResource(exchange.to.flag)
     }
     // endregion
 

@@ -3,6 +3,7 @@ package no.mhl.clarence.ui.views.currencydisplay
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,6 +15,8 @@ class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout
     // region View Properties
     private val value: TextView by lazy { findViewById<TextView>(R.id.currency_display_value) }
     private val nameContainer: LinearLayout by lazy { findViewById<LinearLayout>(R.id.currency_display_name_container) }
+    private val name: TextView by lazy { findViewById<TextView>(R.id.currency_display_name) }
+    private val flag: ImageView by lazy { findViewById<ImageView>(R.id.currency_display_flag) }
     // endregion
 
     // region Click Exposure
@@ -63,6 +66,10 @@ class CurrencyDisplay(context: Context, attrs: AttributeSet?) : ConstraintLayout
     }
 
     fun getText() = value.text.toString()
+
+    fun setName(currency: String) { name.text = currency }
+
+    fun setFlagResource(resource: Int) { flag.setImageResource(resource) }
     // endregion
 
 }

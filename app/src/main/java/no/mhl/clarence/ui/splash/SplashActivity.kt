@@ -4,10 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import no.mhl.clarence.databinding.ActivitySplashBinding
 import no.mhl.clarence.ui.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
