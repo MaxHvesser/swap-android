@@ -15,6 +15,7 @@ import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
+import no.mhl.clarence.util.currencyAsDrawable
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -131,9 +132,9 @@ class HomeFragment : Fragment() {
     // region Setup Currency Details
     private fun setupCurrencyDetails() {
         binding.homeCurrencyDisplayPrimary.setName(exchange.from.name)
-        binding.homeCurrencyDisplayPrimary.setFlagResource(exchange.from.flag)
+        binding.homeCurrencyDisplayPrimary.setFlagResource(currencyAsDrawable(exchange.from.name))
         binding.homeCurrencyDisplaySecondary.setName(exchange.to.name)
-        binding.homeCurrencyDisplaySecondary.setFlagResource(exchange.to.flag)
+        binding.homeCurrencyDisplaySecondary.setFlagResource(currencyAsDrawable(exchange.to.name))
     }
     // endregion
 

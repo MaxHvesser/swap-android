@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Currency
+import no.mhl.clarence.util.currencyAsDrawable
 
 class CurrencyItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -25,7 +26,7 @@ class CurrencyItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private fun setupRowDetails(currency: Currency) {
         name.text = currency.name
         fullName.text = currency.fullName
-        flag.setImageResource(currency.flag)
+        flag.setImageResource(currencyAsDrawable(currency.name))
     }
     // endregion
 

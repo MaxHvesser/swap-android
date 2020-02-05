@@ -16,7 +16,7 @@ data class Exchange(
 fun defaultExchange() =
     Exchange(
         0,
-        Currency(R.drawable.ic_usd, "USD", "United States Dollars"),
-        Currency(R.drawable.ic_gbp, "GBP", "Great British Pounds")
+        Currency("USD", "United States Dollars"),
+        Currency("GBP", "Great British Pounds")
     )
 // endregion

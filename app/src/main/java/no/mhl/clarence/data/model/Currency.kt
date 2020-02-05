@@ -1,7 +1,8 @@
 package no.mhl.clarence.data.model
 
+import androidx.annotation.DrawableRes
+
 data class Currency(
-    val flag: Int,
     val name: String,
     val fullName: String
 )
