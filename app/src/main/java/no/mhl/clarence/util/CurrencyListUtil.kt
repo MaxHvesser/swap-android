@@ -3,6 +3,7 @@ package no.mhl.clarence.util
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Currency
 
+// region Currency List Generation
 fun generateCurrencyList(): List<Currency> = listOf(
     Currency("AUD", "Australian Dollars"),
     Currency("BGN", "Bulgarian Lev"),
@@ -38,7 +39,9 @@ fun generateCurrencyList(): List<Currency> = listOf(
     Currency("USD", "United States Dollars"),
     Currency("ZAR", "South African Rand")
 )
+// endregion
 
+// region Currency As Drawable
 fun currencyAsDrawable(name: String): Int {
     return when (name) {
         "AUD" -> R.drawable.ic_aud
@@ -77,3 +80,4 @@ fun currencyAsDrawable(name: String): Int {
         else -> R.drawable.ic_eur
     }
 }
+// endregion
