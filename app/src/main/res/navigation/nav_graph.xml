@@ -24,6 +24,11 @@
         android:id="@+id/currencySelectionFragment"
         android:name="no.mhl.clarence.ui.currencyselection.CurrencySelectionFragment"
         android:label="CurrencySelectionFragment"
-        tools:layout="@layout/fragment_currency_selection"/>
+        tools:layout="@layout/fragment_currency_selection">
+        <argument
+            android:name="isBaseSelection"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
 
 </navigation>

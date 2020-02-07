@@ -13,6 +13,8 @@ import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
+import no.mhl.clarence.ui.currencyselection.CurrencySelectionFragment
+import no.mhl.clarence.ui.currencyselection.CurrencySelectionFragmentArgs
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
 import no.mhl.clarence.util.currencyAsDrawable
@@ -93,7 +95,8 @@ class HomeFragment : Fragment() {
 
     // region Open Currency Selection
     private fun openCurrencySelection() {
-        findNavController().navigate(R.id.action_homeFragment_to_currencySelectionFragment)
+        val directions = HomeFragmentDirections.actionHomeFragmentToCurrencySelectionFragment().setIsBaseSelection(true)
+        findNavController().navigate(directions)
     }
     // endregion
 
