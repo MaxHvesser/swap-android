@@ -96,4 +96,12 @@ class CurrencySelectionFragment : Fragment() {
     }
     // endregion
 
+    // region Misc
+    private fun updateExchange() {
+        arguments?.let {
+            val isBaseSelection = CurrencySelectionFragmentArgs.fromBundle(it).isBaseSelection
+        }
+    }
+    // endregion
+
 }
