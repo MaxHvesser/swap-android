@@ -77,6 +77,7 @@ class CurrencySelectionFragment : Fragment() {
         }
 
         currencyRecyclerAdapter.currencyClickEvent.observe(viewLifecycleOwner, Observer { currency ->
+            updateExchange(currency)
             findNavController().popBackStack()
         })
     }
@@ -97,9 +98,12 @@ class CurrencySelectionFragment : Fragment() {
     // endregion
 
     // region Misc
-    private fun updateExchange() {
+    private fun updateExchange(currency: Currency) {
         arguments?.let {
-            val isBaseSelection = CurrencySelectionFragmentArgs.fromBundle(it).isBaseSelection
+            when (CurrencySelectionFragmentArgs.fromBundle(it).isBaseSelection) {
+                true -> currencySelectionViewModel.updateExchangeBase(currency)
+                false -> {}
+            }
         }
     }
     // endregion

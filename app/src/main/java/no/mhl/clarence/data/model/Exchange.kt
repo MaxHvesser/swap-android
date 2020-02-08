@@ -8,8 +8,8 @@ import no.mhl.clarence.R
 data class Exchange(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val from: Currency,
-    val to: Currency
+    var from: Currency,
+    var to: Currency
 )
 
 // region Generate Default Exchange

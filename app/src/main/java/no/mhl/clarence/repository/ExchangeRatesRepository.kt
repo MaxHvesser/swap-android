@@ -13,9 +13,6 @@ class ExchangeRatesRepository(
 ) {
 
     // region Fetch latest exchange rates from service
-    suspend fun fetchLatestExchangeRates() =
-        exchangeRatesService.fetchLatestExchangeRates()
-
     suspend fun fetchLatestExchangeRatesForBase(base: String) =
         exchangeRatesService.fetchLatestExchangeRatesForBase(base)
     // endregion
@@ -47,6 +44,9 @@ class ExchangeRatesRepository(
 
     fun exchangeCount() =
         exchangeDao.count()
+
+    fun updateExchange(exchange: Exchange) =
+        exchangeDao.updateExchange(exchange)
 
     fun ratesCount() =
         rateDao.count()
