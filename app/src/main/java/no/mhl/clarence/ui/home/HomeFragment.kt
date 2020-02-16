@@ -123,9 +123,9 @@ class HomeFragment : Fragment() {
 
     // region Setup Currency Details
     private fun setupCurrencyDetails() {
-        binding.homeCurrencyDisplayPrimary.setName(exchange.from.name)
+        binding.homeCurrencyDisplayPrimary.setName(exchange.from.fullName)
         //binding.homeCurrencyDisplayPrimary.setFlagResource(currencyAsDrawable(exchange.from.name))
-        binding.homeCurrencyDisplaySecondary.setName(exchange.to.name)
+        binding.homeCurrencyDisplaySecondary.setName(exchange.to.fullName)
         //binding.homeCurrencyDisplaySecondary.setFlagResource(currencyAsDrawable(exchange.to.name))
     }
     // endregion
