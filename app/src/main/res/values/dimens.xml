@@ -15,6 +15,10 @@
     <dimen name="currency_display_value_primary_text_size">46sp</dimen>
     <!-- endregion -->
 
+    <!-- region Currency Chips -->
+    <dimen name="currency_chip_icon">14dp</dimen>
+    <!-- endregion -->
+
     <!-- region Home -->
     <dimen name="home_currency_converter_margin">54dp</dimen>
     <!-- endregion -->
@@ -23,6 +27,7 @@
     <dimen name="micro">2dp</dimen>
     <dimen name="tiny">4dp</dimen>
     <dimen name="small">8dp</dimen>
+    <dimen name="small_plus">12dp</dimen>
     <dimen name="regular">16dp</dimen>
     <dimen name="medium">24dp</dimen>
     <dimen name="large">32dp</dimen>
@@ -33,6 +38,7 @@
     <dimen name="text_regular">16sp</dimen>
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_huge">26sp</dimen>
+    <dimen name="text_massive">40sp</dimen>
     <!-- endregion -->
 
     <!-- region Rule -->

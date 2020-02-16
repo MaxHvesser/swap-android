@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/small"
+    android:paddingBottom="@dimen/small"
+    android:paddingStart="@dimen/small_plus"
+    android:paddingEnd="@dimen/small_plus"
+    tools:background="@drawable/background_chip_currency_primary">
+
+    <!-- Text -->
+    <TextView
+        android:id="@+id/chip_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/quicksand_bold"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/text_large"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="GBP"/>
+
+    <!-- Image -->
+    <ImageView
+        android:id="@+id/chip_icon"
+        android:layout_width="@dimen/currency_chip_icon"
+        android:layout_height="@dimen/currency_chip_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/chip_text"
+        android:layout_marginStart="@dimen/small"
+        tools:src="@drawable/ic_gbp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

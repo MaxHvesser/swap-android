@@ -2,65 +2,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/currency_display_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:background="@color/backgroundPrimary">
-
-    <!-- Name -->
-    <LinearLayout
-        android:id="@+id/currency_display_name_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <TextView
-            android:id="@+id/currency_display_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:textSize="@dimen/text_large"
-            android:fontFamily="@font/quicksand_medium"
-            android:textColor="@color/textMedium"
-            android:text="NOK"/>
-        <ImageView
-            android:layout_width="@dimen/currency_display_dropdown_arrow_size"
-            android:layout_height="@dimen/currency_display_dropdown_arrow_size"
-            android:src="@drawable/ic_dropdown"
-            android:tint="@color/colorAccent"
-            android:layout_marginBottom="@dimen/micro"
-            android:layout_marginStart="@dimen/small"
-            android:layout_gravity="bottom"/>
-    </LinearLayout>
-
-    <!-- Flag -->
-    <ImageView
-        android:id="@+id/currency_display_flag"
-        android:layout_width="@dimen/currency_display_flag_size"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_aud"
-        app:layout_constraintTop_toTopOf="@id/currency_display_name_container"
-        app:layout_constraintBottom_toBottomOf="@id/currency_display_name_container"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Value -->
     <TextView
-        android:id="@+id/currency_display_value"
-        android:layout_width="0dp"
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:includeFontPadding="false"
-        android:layout_marginTop="@dimen/regular"
+        android:textSize="@dimen/text_massive"
         android:fontFamily="@font/quicksand_medium"
-        android:textSize="@dimen/currency_display_value_primary_text_size"
+        android:includeFontPadding="false"
         android:textColor="@color/textStrong"
-        android:maxLines="1"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/currency_display_name_container"
-        android:text="0"/>
+        tools:text="20,456,983 00000000000000000"/>
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_regular"
+        android:fontFamily="@font/quicksand_medium"
+        android:includeFontPadding="false"
+        android:textColor="@color/textMedium"
+        app:layout_constraintTop_toBottomOf="@id/value"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Great British Pounds"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

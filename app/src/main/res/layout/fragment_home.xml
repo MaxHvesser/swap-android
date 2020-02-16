@@ -8,6 +8,16 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundPrimary">
 
+    <!-- Currency Display Primary -->
+    <no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
+        android:id="@+id/home_currency_display_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:displayType="primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <!-- Currency Display Secondary -->
     <no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
         android:id="@+id/home_currency_display_secondary"
@@ -16,35 +26,19 @@
         app:displayType="secondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/home_display_swap"
-        android:layout_marginStart="@dimen/home_currency_converter_margin"
-        android:layout_marginEnd="@dimen/home_currency_converter_margin"
-        android:layout_marginBottom="@dimen/regular"/>
+        app:layout_constraintTop_toBottomOf="@id/home_currency_display_primary"/>
 
     <!-- Swap Currencies -->
     <no.mhl.clarence.ui.views.currencyswap.CurrencySwap
         android:id="@+id/home_display_swap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/home_keypad_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/home_currency_converter_margin"
-        android:layout_marginEnd="@dimen/home_currency_converter_margin"/>
-
-    <!-- Currency Display Primary -->
-    <no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
-        android:id="@+id/home_currency_display_primary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:displayType="primary"
-        app:layout_constraintTop_toBottomOf="@id/home_display_swap"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="@dimen/home_currency_converter_margin"
         android:layout_marginEnd="@dimen/home_currency_converter_margin"
-        android:layout_marginTop="@dimen/regular"/>
+        android:layout_marginBottom="@dimen/regular"/>
 
     <!-- Keypad View -->
     <androidx.constraintlayout.widget.ConstraintLayout

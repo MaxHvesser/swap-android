@@ -14,7 +14,7 @@
     <!-- endregion -->
 
     <!-- region Buttons -->
-    <style name="ClarenceButton" parent="Widget.AppCompat.Button"/>
+    <style name="ClarenceButton" parent="Widget.AppCompat.Button.Borderless"/>
 
     <style name="ClarenceButton.Keypad" parent="ClarenceButton">
         <item name="android:layout_width">0dp</item>

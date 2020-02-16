@@ -10,6 +10,7 @@
     <!-- region General -->
     <color name="backgroundPrimary">#060F1B</color>
     <color name="backgroundSecondary">#141F2F</color>
+    <color name="backgroundAccent">#1A283C</color>
     <color name="ripplePrimary">#0DFFFFFF</color>
     <!-- endregion -->
 

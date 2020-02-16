@@ -57,7 +57,6 @@ class HomeFragment : Fragment() {
     private fun setupView() {
         setupViewInsets()
         setupKeypadView()
-        setupCurrencyDisplayPrimary()
     }
 
     private fun setupViewInsets() {
@@ -80,16 +79,6 @@ class HomeFragment : Fragment() {
             }
 
         })
-    }
-    // endregion
-
-    // region Currency Display Setup
-    private fun setupCurrencyDisplayPrimary() {
-        binding.homeCurrencyDisplayPrimary.currencySelectionClick.observe(
-            viewLifecycleOwner,
-            Observer {
-                openCurrencySelection()
-            })
     }
     // endregion
 
@@ -135,9 +124,9 @@ class HomeFragment : Fragment() {
     // region Setup Currency Details
     private fun setupCurrencyDetails() {
         binding.homeCurrencyDisplayPrimary.setName(exchange.from.name)
-        binding.homeCurrencyDisplayPrimary.setFlagResource(currencyAsDrawable(exchange.from.name))
+        //binding.homeCurrencyDisplayPrimary.setFlagResource(currencyAsDrawable(exchange.from.name))
         binding.homeCurrencyDisplaySecondary.setName(exchange.to.name)
-        binding.homeCurrencyDisplaySecondary.setFlagResource(currencyAsDrawable(exchange.to.name))
+        //binding.homeCurrencyDisplaySecondary.setFlagResource(currencyAsDrawable(exchange.to.name))
     }
     // endregion
 
