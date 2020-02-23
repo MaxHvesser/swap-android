@@ -2,7 +2,7 @@
 <resources>
 
     <!-- region Keypad -->
-    <dimen name="keypad_height">300dp</dimen>
+    <dimen name="keypad_height">250dp</dimen>
     <!-- endregion -->
 
     <!-- region Currency Row -->
@@ -34,10 +34,12 @@
     <!-- endregion -->
 
     <!-- region Text Size Metrics -->
+    <dimen name="text_tiny">12sp</dimen>
     <dimen name="text_small">14sp</dimen>
     <dimen name="text_regular">16sp</dimen>
     <dimen name="text_large">18sp</dimen>
-    <dimen name="text_huge">26sp</dimen>
+    <dimen name="text_larger">26sp</dimen>
+    <dimen name="text_huge">30sp</dimen>
     <dimen name="text_massive">40sp</dimen>
     <!-- endregion -->
 

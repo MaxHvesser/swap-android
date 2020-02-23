@@ -9,15 +9,11 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
-import no.mhl.clarence.ui.currencyselection.CurrencySelectionFragment
-import no.mhl.clarence.ui.currencyselection.CurrencySelectionFragmentArgs
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
-import no.mhl.clarence.util.currencyAsDrawable
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -57,6 +53,7 @@ class HomeFragment : Fragment() {
     private fun setupView() {
         setupViewInsets()
         setupKeypadView()
+        setupCurrencyChips()
     }
 
     private fun setupViewInsets() {
@@ -82,9 +79,16 @@ class HomeFragment : Fragment() {
     }
     // endregion
 
+    // region Currency Display Setup
+    private fun setupCurrencyChips() {
+        binding.homeDisplaySwap.primary.setOnClickListener { openCurrencySelection(true) }
+        binding.homeDisplaySwap.secondary.setOnClickListener { openCurrencySelection() }
+    }
+    // endregion
+
     // region Open Currency Selection
-    private fun openCurrencySelection() {
-        val directions = HomeFragmentDirections.actionHomeFragmentToCurrencySelectionFragment().setIsBaseSelection(true)
+    private fun openCurrencySelection(base: Boolean = false) {
+        val directions = HomeFragmentDirections.actionHomeFragmentToCurrencySelectionFragment().setIsBaseSelection(base)
         findNavController().navigate(directions)
     }
     // endregion
@@ -115,7 +119,7 @@ class HomeFragment : Fragment() {
             val currencyValue = ratesForExchange.values.find { it.name == exchange.to.name }
             currencyValue?.let {
                 val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toFloat() * it.value
-                binding.homeCurrencyDisplaySecondary.setText(exchangeValue.toString())
+                binding.homeCurrencyDisplaySecondary.setText(String.format("%.2f", exchangeValue))
             }
         }
     }
@@ -124,9 +128,7 @@ class HomeFragment : Fragment() {
     // region Setup Currency Details
     private fun setupCurrencyDetails() {
         binding.homeCurrencyDisplayPrimary.setName(exchange.from.fullName)
-        //binding.homeCurrencyDisplayPrimary.setFlagResource(currencyAsDrawable(exchange.from.name))
         binding.homeCurrencyDisplaySecondary.setName(exchange.to.fullName)
-        //binding.homeCurrencyDisplaySecondary.setFlagResource(currencyAsDrawable(exchange.to.name))
     }
     // endregion
 
