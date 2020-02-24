@@ -20,6 +20,14 @@ class CurrencySelectionViewModel(
             exchangeRatesRepository.updateExchange(updatedExchange)
         }
     }
+
+    fun updateExchangeToCurrency(currency: Currency) = CoroutineScope(Dispatchers.IO).launch {
+        val currentExchange = exchangeRatesRepository.fetchExchangeFromDb()
+        currentExchange?.let { updatedExchange ->
+            updatedExchange.to = currency
+            exchangeRatesRepository.updateExchange(updatedExchange)
+        }
+    }
     // endregion
 
 }

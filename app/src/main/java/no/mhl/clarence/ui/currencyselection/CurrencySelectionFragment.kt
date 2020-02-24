@@ -102,7 +102,7 @@ class CurrencySelectionFragment : Fragment() {
         arguments?.let {
             when (CurrencySelectionFragmentArgs.fromBundle(it).isBaseSelection) {
                 true -> currencySelectionViewModel.updateExchangeBase(currency)
-                false -> {}
+                false -> currencySelectionViewModel.updateExchangeToCurrency(currency)
             }
         }
     }
