@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.MutableLiveData
 import no.mhl.clarence.R
+import java.math.BigDecimal
 
 class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     ConstraintLayout(context, attrs) {
@@ -17,6 +18,10 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     // region View Properties
     private val value: TextView by lazy { findViewById<TextView>(R.id.value) }
     private val name: TextView by lazy { findViewById<TextView>(R.id.name) }
+    // endregion
+
+    // region Properties
+    private val valuePlaceholder: String = resources.getString(R.string.currency_display_placeholder_value)
     // endregion
 
     // region Initialisation
@@ -45,7 +50,7 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     }
 
     private fun setupInitialValue() {
-        value.text = "0"
+        value.text = valuePlaceholder
     }
 
     private fun setDisplayAsSecondary() {
@@ -58,7 +63,7 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
 
     // region Value Text IO
     fun appendValue(value: String) {
-        if (this.value.text.toString() == "0") {
+        if (this.value.text.toString() == valuePlaceholder) {
             this.value.text = value
         } else {
             this.value.append(value)
@@ -74,7 +79,7 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     }
 
     fun clearValue() {
-        value.text = "0"
+        value.text = valuePlaceholder
     }
 
     fun setText(text: String) {

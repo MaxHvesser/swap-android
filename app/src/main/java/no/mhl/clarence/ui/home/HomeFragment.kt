@@ -71,10 +71,9 @@ class HomeFragment : Fragment() {
 
             if (key == KeypadKey.BACKSPACE) {
                 consumeKeyForDisplay(key, binding.homeCurrencyDisplaySecondary)
-            } else {
-                convertCurrency()
             }
 
+            convertCurrency()
         })
     }
     // endregion
@@ -102,7 +101,7 @@ class HomeFragment : Fragment() {
             }
         })
     }
-
+    
     private fun fetchRateForBase() {
         homeViewModel.fetchRateForBase(exchange.from.name).observe(viewLifecycleOwner, Observer {
             it?.let { rate ->
@@ -118,7 +117,7 @@ class HomeFragment : Fragment() {
         if (::ratesForExchange.isInitialized) {
             val currencyValue = ratesForExchange.values.find { it.name == exchange.to.name }
             currencyValue?.let {
-                val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toFloat() * it.value
+                val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toBigDecimal() * it.value
                 binding.homeCurrencyDisplaySecondary.setText(String.format("%.2f", exchangeValue))
             }
         }

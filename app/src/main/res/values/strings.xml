@@ -22,4 +22,8 @@
     <string name="currency_selection_search_hint">Search currency</string>
     <!-- endregion -->
 
+    <!-- region Currency Display -->
+    <string name="currency_display_placeholder_value">0.00</string>
+    <!-- endregion -->
+
 </resources>
