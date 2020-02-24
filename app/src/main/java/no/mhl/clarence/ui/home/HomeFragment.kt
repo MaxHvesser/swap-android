@@ -129,6 +129,8 @@ class HomeFragment : Fragment() {
     private fun setupCurrencyDetails() {
         binding.homeCurrencyDisplayPrimary.setName(exchange.from.fullName)
         binding.homeCurrencyDisplaySecondary.setName(exchange.to.fullName)
+        binding.homeDisplaySwap.setupPrimaryChipForCurrency(exchange.from)
+        binding.homeDisplaySwap.setupSecondaryChipForCurrency(exchange.to)
     }
     // endregion
 
