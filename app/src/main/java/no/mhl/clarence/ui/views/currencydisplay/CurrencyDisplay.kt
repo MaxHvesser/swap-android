@@ -12,6 +12,10 @@ import androidx.lifecycle.MutableLiveData
 import no.mhl.clarence.R
 import java.math.BigDecimal
 
+// region Static Constants
+private val SECONDARY_DISPLAY_ALPHA: Float = 0.6f
+// endregion
+
 class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     ConstraintLayout(context, attrs) {
 
@@ -54,10 +58,8 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     }
 
     private fun setDisplayAsSecondary() {
-        value.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.text_huge))
-        name.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.text_tiny))
-        value.alpha = 0.5f
-        name.alpha = 0.5f
+        value.alpha = SECONDARY_DISPLAY_ALPHA
+        name.alpha = SECONDARY_DISPLAY_ALPHA
     }
     // endregion
 
