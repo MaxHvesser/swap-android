@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
+import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -117,8 +118,11 @@ class HomeFragment : Fragment() {
         if (::ratesForExchange.isInitialized) {
             val currencyValue = ratesForExchange.values.find { it.name == exchange.to.name }
             currencyValue?.let {
-                val exchangeValue = binding.homeCurrencyDisplayPrimary.getText().toBigDecimal() * it.value
-                binding.homeCurrencyDisplaySecondary.setText(String.format("%.2f", exchangeValue))
+                CurrencyDisplay.convertValueAndFormat(
+                    binding.homeCurrencyDisplayPrimary,
+                    binding.homeCurrencyDisplaySecondary,
+                    it.value
+                )
             }
         }
     }
@@ -126,8 +130,8 @@ class HomeFragment : Fragment() {
 
     // region Setup Currency Details
     private fun setupCurrencyDetails() {
-        binding.homeCurrencyDisplayPrimary.setName(exchange.from.fullName)
-        binding.homeCurrencyDisplaySecondary.setName(exchange.to.fullName)
+        binding.homeCurrencyDisplayPrimary.name = exchange.from.fullName
+        binding.homeCurrencyDisplaySecondary.name = exchange.to.fullName
         binding.homeDisplaySwap.setupPrimaryChipForCurrency(exchange.from)
         binding.homeDisplaySwap.setupSecondaryChipForCurrency(exchange.to)
     }
