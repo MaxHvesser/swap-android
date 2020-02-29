@@ -16,13 +16,15 @@ import androidx.recyclerview.widget.RecyclerView
 import no.mhl.clarence.data.model.Currency
 import no.mhl.clarence.databinding.FragmentCurrencySelectionBinding
 import no.mhl.clarence.ui.currencyselection.adapter.CurrencyRecyclerAdapter
+import no.mhl.clarence.ui.home.HomeViewModel
 import no.mhl.clarence.util.generateCurrencyList
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class CurrencySelectionFragment : Fragment() {
 
     // region Properties
-    private val currencySelectionViewModel: CurrencySelectionViewModel by viewModel()
+//    private val currencySelectionViewModel: CurrencySelectionViewModel by viewModel()
+    private val homeViewModel: HomeViewModel by sharedViewModel()
     private val linearLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
     private val currencyRates: List<Currency> = generateCurrencyList()
     private val currencyRecyclerAdapter: CurrencyRecyclerAdapter = CurrencyRecyclerAdapter(currencyRates)
@@ -78,6 +80,7 @@ class CurrencySelectionFragment : Fragment() {
 
         currencyRecyclerAdapter.currencyClickEvent.observe(viewLifecycleOwner, Observer { currency ->
             updateExchange(currency)
+            homeViewModel.clearFragmentState()
             findNavController().popBackStack()
         })
     }
@@ -101,8 +104,8 @@ class CurrencySelectionFragment : Fragment() {
     private fun updateExchange(currency: Currency) {
         arguments?.let {
             when (CurrencySelectionFragmentArgs.fromBundle(it).isBaseSelection) {
-                true -> currencySelectionViewModel.updateExchangeBase(currency)
-                false -> currencySelectionViewModel.updateExchangeToCurrency(currency)
+                true -> homeViewModel.updateExchangeBase(currency)
+                false -> homeViewModel.updateExchangeToCurrency(currency)
             }
         }
     }

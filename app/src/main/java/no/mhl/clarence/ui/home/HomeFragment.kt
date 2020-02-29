@@ -15,12 +15,13 @@ import no.mhl.clarence.databinding.FragmentHomeBinding
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     // region Properties
-    private val homeViewModel: HomeViewModel by viewModel()
+    private val homeViewModel: HomeViewModel by sharedViewModel()
     private lateinit var exchange: Exchange
     private lateinit var ratesForExchange: Rate
     // endregion
@@ -55,6 +56,7 @@ class HomeFragment : Fragment() {
         setupViewInsets()
         setupKeypadView()
         setupCurrencyChips()
+        restoreFragmentState()
     }
 
     private fun setupViewInsets() {
@@ -125,6 +127,24 @@ class HomeFragment : Fragment() {
                 )
             }
         }
+    }
+    // endregion
+
+    // region Fragment State IO
+    private fun saveFragmentState() {
+        homeViewModel.valueToExchangeAsString = binding.homeCurrencyDisplayPrimary.value
+        homeViewModel.exchangedValueAsString = binding.homeCurrencyDisplaySecondary.value
+    }
+
+    private fun restoreFragmentState() {
+        binding.homeCurrencyDisplayPrimary.value = homeViewModel.valueToExchangeAsString
+        binding.homeCurrencyDisplaySecondary.value = homeViewModel.exchangedValueAsString
+    }
+    // endregion
+
+    override fun onPause() {
+        super.onPause()
+        saveFragmentState()
     }
     // endregion
 

@@ -9,7 +9,6 @@ import no.mhl.clarence.data.remote.ExchangeRatesService
 import no.mhl.clarence.repository.ExchangeRatesRepository
 import no.mhl.clarence.ui.main.MainViewModel
 import no.mhl.clarence.ui.currencyselection.CurrencySelectionFragment
-import no.mhl.clarence.ui.currencyselection.CurrencySelectionViewModel
 import no.mhl.clarence.ui.home.HomeFragment
 import no.mhl.clarence.ui.home.HomeViewModel
 import no.mhl.clarence.ui.splash.SplashViewModel
@@ -40,7 +39,6 @@ val homeModule = module {
 // region Currency Selection Module
 val currencySelectionModule = module {
     single { CurrencySelectionFragment() }
-    factory { CurrencySelectionViewModel(get()) }
 }
 // endregion
 
