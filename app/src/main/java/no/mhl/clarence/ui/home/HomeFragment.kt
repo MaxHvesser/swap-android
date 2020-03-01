@@ -86,6 +86,9 @@ class HomeFragment : Fragment() {
     private fun setupCurrencyChips() {
         binding.homeDisplaySwap.primary.setOnClickListener { openCurrencySelection(true) }
         binding.homeDisplaySwap.secondary.setOnClickListener { openCurrencySelection() }
+        binding.homeDisplaySwap.swapClickEvent.observe(viewLifecycleOwner, Observer {
+            binding.homeDisplayCurrency.animateSwap()
+        })
     }
     // endregion
 

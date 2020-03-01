@@ -6,6 +6,7 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
+import androidx.lifecycle.MutableLiveData
 import no.mhl.clarence.R
 import no.mhl.clarence.data.model.Currency
 import no.mhl.clarence.ui.views.currencychip.CurrencyChip
@@ -23,6 +24,10 @@ class CurrencySwap(context: Context, attrs: AttributeSet?) : ConstraintLayout(co
     // region Properties
     private var primaryInitialX: Float = 0f
     private var secondaryInitialX: Float = 0f
+    // endregion
+
+    // region Click Exposure
+    val swapClickEvent: MutableLiveData<Boolean> = MutableLiveData()
     // endregion
 
     // region Initialisation
@@ -49,6 +54,7 @@ class CurrencySwap(context: Context, attrs: AttributeSet?) : ConstraintLayout(co
             primaryInitialX = primary.x
             secondaryInitialX = secondary.x
             swapChips()
+            swapClickEvent.postValue(true)
         }
     }
     // endregion
