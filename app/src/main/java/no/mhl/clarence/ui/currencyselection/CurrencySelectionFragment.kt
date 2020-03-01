@@ -23,7 +23,6 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class CurrencySelectionFragment : Fragment() {
 
     // region Properties
-//    private val currencySelectionViewModel: CurrencySelectionViewModel by viewModel()
     private val homeViewModel: HomeViewModel by sharedViewModel()
     private val linearLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
     private val currencyRates: List<Currency> = generateCurrencyList()

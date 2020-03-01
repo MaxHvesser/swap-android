@@ -71,12 +71,7 @@ class HomeFragment : Fragment() {
     // region Keypad View Setup
     private fun setupKeypadView() {
         binding.homeKeypadView.keypadClickEvent.observe(viewLifecycleOwner, Observer { key ->
-            consumeKeyForDisplay(key, binding.homeDisplayCurrency.primary)
-
-            if (key == KeypadKey.BACKSPACE) {
-                consumeKeyForDisplay(key, binding.homeDisplayCurrency.secondary)
-            }
-
+            binding.homeDisplayCurrency.consumeKeyEvent(key)
             convertCurrency()
         })
     }

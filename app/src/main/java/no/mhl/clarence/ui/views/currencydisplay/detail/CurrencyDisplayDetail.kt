@@ -56,10 +56,7 @@ class CurrencyDisplayDetail(context: Context, private val attrs: AttributeSet?) 
 
     private fun setupInitialValue() { value = valuePlaceholder }
 
-    private fun setDisplayAsSecondary() {
-        valueText.alpha = SECONDARY_DISPLAY_ALPHA
-        nameText.alpha = SECONDARY_DISPLAY_ALPHA
-    }
+    private fun setDisplayAsSecondary() { this.alpha = SECONDARY_DISPLAY_ALPHA }
     // endregion
 
     // region Value Text IO

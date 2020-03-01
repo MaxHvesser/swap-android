@@ -9,7 +9,15 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import no.mhl.clarence.R
 import no.mhl.clarence.ui.views.currencydisplay.detail.CurrencyDisplayDetail
+import no.mhl.clarence.ui.views.keypad.KeypadKey
+import no.mhl.clarence.util.consumeKeyForDisplay
 import java.math.BigDecimal
+
+// region Static Constants
+private const val SECONDARY_DISPLAY_ALPHA: Float = 0.6f
+private const val PRIMARY_DISPLAY_ALPHA: Float = 1f
+private const val ANIM_DURATION: Long = 250L
+// endregion
 
 class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     ConstraintLayout(context, attrs) {
@@ -19,9 +27,24 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     val secondary: CurrencyDisplayDetail by lazy { findViewById<CurrencyDisplayDetail>(R.id.secondary) }
     // endregion
 
+    // region Properties
+    private var swapped: Boolean = false
+    private val focusedDetail: CurrencyDisplayDetail
+        get() = if (swapped) secondary else primary
+    private val unfocusedDetail: CurrencyDisplayDetail
+        get() = if (swapped) primary else secondary
+    // endregion
+
     // region Initialisation
     init {
         View.inflate(context, R.layout.view_currency_display, this)
+    }
+    // endregion
+
+    // region Keypad Key Consuming
+    fun consumeKeyEvent(key: KeypadKey) {
+        consumeKeyForDisplay(key, focusedDetail)
+        if (key == KeypadKey.BACKSPACE) { consumeKeyForDisplay(key, unfocusedDetail) }
     }
     // endregion
 
@@ -29,7 +52,7 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     fun convertValueAndFormat(rate: BigDecimal) {
         val inputValue: BigDecimal? = primary.value.toBigDecimalOrNull()
         inputValue?.let { value ->
-            secondary.value = String.format("%.2f", value * rate)
+            unfocusedDetail.value = String.format("%.2f", value * rate)
         }
     }
     // endregion
@@ -39,17 +62,25 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
         ViewCompat
             .animate(primary)
             .y(secondary.y)
-            .setDuration(250)
+            .alpha(if (swapped) PRIMARY_DISPLAY_ALPHA else SECONDARY_DISPLAY_ALPHA)
+            .setDuration(ANIM_DURATION)
             .setInterpolator(OvershootInterpolator())
             .start()
 
         ViewCompat
             .animate(secondary)
             .y(primary.y)
-            .setDuration(250)
+            .alpha(if (swapped) SECONDARY_DISPLAY_ALPHA else PRIMARY_DISPLAY_ALPHA)
+            .setDuration(ANIM_DURATION)
             .setInterpolator(OvershootInterpolator())
             .start()
+
+        toggleSwapped()
     }
+    // endregion
+
+    // region Misc
+    private fun toggleSwapped() { swapped = swapped.not() }
     // endregion
 
 }
