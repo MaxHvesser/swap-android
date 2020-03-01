@@ -3,6 +3,7 @@ package no.mhl.clarence.ui.views.currencyswap
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewTreeObserver
 import android.view.animation.OvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
@@ -66,6 +67,8 @@ class CurrencySwap(context: Context, attrs: AttributeSet?) : ConstraintLayout(co
             .x(secondaryInitialX)
             .setDuration(250)
             .setInterpolator(OvershootInterpolator())
+            .withStartAction { swap.isClickable = false }
+            .withEndAction { swap.isClickable = true }
             .start()
 
         ViewCompat
