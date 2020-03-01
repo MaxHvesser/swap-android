@@ -8,49 +8,15 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundPrimary">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Currency Display -->
+    <no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
+        android:id="@+id/home_display_currency"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/home_display_swap"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/home_display_swap">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/home_currency_display_primary_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/backgroundAccent"
-            app:layout_constraintHeight_percent="0.5">
-
-            <!-- Currency Display Primary -->
-            <no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
-                android:id="@+id/home_currency_display_primary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:displayType="primary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:padding="@dimen/large"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!-- Currency Display Secondary -->
-        <no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
-            android:id="@+id/home_currency_display_secondary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:displayType="secondary"
-            app:layout_constraintTop_toBottomOf="@id/home_currency_display_primary_container"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="@dimen/large" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Swap Currencies -->
     <no.mhl.clarence.ui.views.currencyswap.CurrencySwap
@@ -60,8 +26,6 @@
         app:layout_constraintBottom_toTopOf="@id/home_keypad_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="@dimen/home_currency_converter_margin"
-        android:layout_marginEnd="@dimen/home_currency_converter_margin"
         android:layout_marginBottom="@dimen/regular"/>
 
     <!-- Keypad View -->

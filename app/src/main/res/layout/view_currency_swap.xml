@@ -18,16 +18,6 @@
         app:layout_constraintEnd_toStartOf="@id/swap"
         android:layout_marginEnd="@dimen/regular"/>
 
-    <!-- Swap Chip -->
-    <no.mhl.clarence.ui.views.currencychip.SwapChip
-        android:id="@+id/swap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
     <!-- Currency Secondary Chip -->
     <no.mhl.clarence.ui.views.currencychip.CurrencyChip
         android:id="@+id/secondary"
@@ -37,5 +27,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/swap"
         android:layout_marginStart="@dimen/regular"/>
+
+    <!-- Swap Chip -->
+    <no.mhl.clarence.ui.views.currencychip.SwapChip
+        android:id="@+id/swap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

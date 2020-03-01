@@ -13,6 +13,7 @@ import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
 import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
+import no.mhl.clarence.ui.views.currencyswap.CurrencySwap
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -70,10 +71,10 @@ class HomeFragment : Fragment() {
     // region Keypad View Setup
     private fun setupKeypadView() {
         binding.homeKeypadView.keypadClickEvent.observe(viewLifecycleOwner, Observer { key ->
-            consumeKeyForDisplay(key, binding.homeCurrencyDisplayPrimary)
+            consumeKeyForDisplay(key, binding.homeDisplayCurrency.primary)
 
             if (key == KeypadKey.BACKSPACE) {
-                consumeKeyForDisplay(key, binding.homeCurrencyDisplaySecondary)
+                consumeKeyForDisplay(key, binding.homeDisplayCurrency.secondary)
             }
 
             convertCurrency()
@@ -120,11 +121,7 @@ class HomeFragment : Fragment() {
         if (::ratesForExchange.isInitialized) {
             val currencyValue = ratesForExchange.values.find { it.name == exchange.to.name }
             currencyValue?.let {
-                CurrencyDisplay.convertValueAndFormat(
-                    binding.homeCurrencyDisplayPrimary,
-                    binding.homeCurrencyDisplaySecondary,
-                    it.value
-                )
+                binding.homeDisplayCurrency.convertValueAndFormat(it.value)
             }
         }
     }
@@ -132,13 +129,13 @@ class HomeFragment : Fragment() {
 
     // region Fragment State IO
     private fun saveFragmentState() {
-        homeViewModel.valueToExchangeAsString = binding.homeCurrencyDisplayPrimary.value
-        homeViewModel.exchangedValueAsString = binding.homeCurrencyDisplaySecondary.value
+        homeViewModel.valueToExchangeAsString = binding.homeDisplayCurrency.primary.value
+        homeViewModel.exchangedValueAsString = binding.homeDisplayCurrency.secondary.value
     }
 
     private fun restoreFragmentState() {
-        binding.homeCurrencyDisplayPrimary.value = homeViewModel.valueToExchangeAsString
-        binding.homeCurrencyDisplaySecondary.value = homeViewModel.exchangedValueAsString
+        binding.homeDisplayCurrency.primary.value = homeViewModel.valueToExchangeAsString
+        binding.homeDisplayCurrency.secondary.value = homeViewModel.exchangedValueAsString
     }
     // endregion
 
@@ -150,8 +147,8 @@ class HomeFragment : Fragment() {
 
     // region Setup Currency Details
     private fun setupCurrencyDetails() {
-        binding.homeCurrencyDisplayPrimary.name = exchange.from.fullName
-        binding.homeCurrencyDisplaySecondary.name = exchange.to.fullName
+        binding.homeDisplayCurrency.primary.name = exchange.from.fullName
+        binding.homeDisplayCurrency.secondary.name = exchange.to.fullName
         binding.homeDisplaySwap.setupPrimaryChipForCurrency(exchange.from)
         binding.homeDisplaySwap.setupSecondaryChipForCurrency(exchange.to)
     }
