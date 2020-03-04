@@ -82,7 +82,12 @@ class HomeFragment : Fragment() {
         binding.homeDisplaySwap.primary.setOnClickListener { openCurrencySelection(true) }
         binding.homeDisplaySwap.secondary.setOnClickListener { openCurrencySelection() }
         binding.homeDisplaySwap.swapClickEvent.observe(viewLifecycleOwner, Observer {
+            // TODO improve performance and implementation here.
             binding.homeDisplayCurrency.animateSwap()
+            val exchange = Exchange(0, exchange.to, exchange.from)
+            this.exchange = exchange
+            homeViewModel.replaceExchange(exchange)
+            fetchRateForBase(false)
         })
     }
     // endregion
@@ -104,11 +109,11 @@ class HomeFragment : Fragment() {
         })
     }
     
-    private fun fetchRateForBase() {
+    private fun fetchRateForBase(initialLoad: Boolean = true) {
         homeViewModel.fetchRateForBase(exchange.from.name).observe(viewLifecycleOwner, Observer {
             it?.let { rate ->
                 ratesForExchange = rate
-                setupCurrencyDetails()
+                if (initialLoad) { setupCurrencyDetails() } else { convertCurrency() }
             }
         })
     }

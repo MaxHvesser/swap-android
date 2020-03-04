@@ -6,6 +6,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import no.mhl.clarence.data.model.Currency
+import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.defaultExchange
 import no.mhl.clarence.repository.ExchangeRatesRepository
 
@@ -44,6 +45,10 @@ class HomeViewModel(
 
     fun fetchRateForBase(base: String) = liveData(Dispatchers.IO) {
         emit(exchangeRatesRepository.fetchRateForBaseFromDb(base))
+    }
+
+    fun replaceExchange(exchange: Exchange) = CoroutineScope(Dispatchers.IO).launch {
+        exchangeRatesRepository.replaceExchange(exchange)
     }
     // endregion
 

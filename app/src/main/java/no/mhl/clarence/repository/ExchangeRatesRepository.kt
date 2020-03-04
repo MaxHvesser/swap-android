@@ -48,6 +48,11 @@ class ExchangeRatesRepository(
     fun updateExchange(exchange: Exchange) =
         exchangeDao.updateExchange(exchange)
 
+    fun replaceExchange(exchange: Exchange) {
+        deleteExchangeFromDb()
+        storeExchangeInDb(exchange)
+    }
+
     fun ratesCount() =
         rateDao.count()
 

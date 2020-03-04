@@ -50,7 +50,7 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
 
     // region Currency Conversion
     fun convertValueAndFormat(rate: BigDecimal) {
-        val inputValue: BigDecimal? = primary.value.toBigDecimalOrNull()
+        val inputValue: BigDecimal? = focusedDetail.value.toBigDecimalOrNull()
         inputValue?.let { value ->
             unfocusedDetail.value = String.format("%.2f", value * rate)
         }
