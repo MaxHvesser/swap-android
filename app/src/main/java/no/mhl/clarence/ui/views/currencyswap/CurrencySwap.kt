@@ -17,9 +17,9 @@ import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
 class CurrencySwap(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
     // region View Properties
-    val primary by lazy { findViewById<CurrencyChip>(R.id.primary) }
-    val secondary by lazy { findViewById<CurrencyChip>(R.id.secondary) }
-    val swap by lazy { findViewById<SwapChip>(R.id.swap) }
+    val primary: CurrencyChip by lazy { findViewById<CurrencyChip>(R.id.primary) }
+    val secondary: CurrencyChip by lazy { findViewById<CurrencyChip>(R.id.secondary) }
+    val swap: SwapChip by lazy { findViewById<SwapChip>(R.id.swap) }
     // endregion
 
     // region Properties

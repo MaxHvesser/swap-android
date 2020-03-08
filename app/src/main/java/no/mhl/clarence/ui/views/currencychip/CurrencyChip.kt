@@ -31,8 +31,8 @@ class CurrencyChip(context: Context, attrs: AttributeSet?) : ConstraintLayout(co
         name.text = currency.name
         icon.setImageResource(currencyAsDrawable(currency.name))
         parent.setBackgroundResource(when (isBase) {
-            true -> R.drawable.background_chip_currency_primary
-            false -> R.drawable.background_chip_currency_secondary
+            true -> R.drawable.ripple_chip_primary
+            false -> R.drawable.ripple_chip_secondary
         })
     }
     // endregion
