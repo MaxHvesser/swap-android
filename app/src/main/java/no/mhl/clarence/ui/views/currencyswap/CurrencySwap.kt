@@ -62,21 +62,17 @@ class CurrencySwap(context: Context, attrs: AttributeSet?) : ConstraintLayout(co
 
     // region Swap Animation
     private fun swapChips() {
-        ViewCompat
-            .animate(primary)
-            .x(secondaryInitialX)
-            .setDuration(250)
-            .setInterpolator(OvershootInterpolator())
-            .withStartAction { swap.isClickable = false }
-            .withEndAction { swap.isClickable = true }
-            .start()
-
-        ViewCompat
-            .animate(secondary)
-            .x(primaryInitialX)
-            .setDuration(250)
-            .setInterpolator(OvershootInterpolator())
-            .start()
+        fun animateSwapForView(view: View, isPrimary: Boolean) {
+            ViewCompat
+                .animate(view)
+                .x(if (isPrimary) secondaryInitialX else primaryInitialX)
+                .setInterpolator(OvershootInterpolator())
+                .withStartAction { swap.isClickable = false }
+                .withEndAction { swap.isClickable = true }
+                .start()
+        }
+        animateSwapForView(primary, true)
+        animateSwapForView(secondary, false)
     }
     // endregion
 

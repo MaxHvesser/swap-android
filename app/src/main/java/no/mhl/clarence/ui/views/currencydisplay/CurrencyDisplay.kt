@@ -8,16 +8,13 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import no.mhl.clarence.R
+import no.mhl.clarence.application.Constants.ANIM_DURATION
+import no.mhl.clarence.application.Constants.PRIMARY_DISPLAY_ALPHA
+import no.mhl.clarence.application.Constants.SECONDARY_DISPLAY_ALPHA
 import no.mhl.clarence.ui.views.currencydisplay.detail.CurrencyDisplayDetail
 import no.mhl.clarence.ui.views.keypad.KeypadKey
 import no.mhl.clarence.util.consumeKeyForDisplay
 import java.math.BigDecimal
-
-// region Static Constants
-private const val SECONDARY_DISPLAY_ALPHA: Float = 0.6f
-private const val PRIMARY_DISPLAY_ALPHA: Float = 1f
-private const val ANIM_DURATION: Long = 250L
-// endregion
 
 class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     ConstraintLayout(context, attrs) {
@@ -59,21 +56,22 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
 
     // region Animate Swap
     fun animateSwap() {
-        ViewCompat
-            .animate(primary)
-            .y(secondary.y)
-            .alpha(if (swapped) PRIMARY_DISPLAY_ALPHA else SECONDARY_DISPLAY_ALPHA)
-            .setDuration(ANIM_DURATION)
-            .setInterpolator(OvershootInterpolator())
-            .start()
+        fun swap(view: View, isPrimary: Boolean) {
+            ViewCompat
+                .animate(view)
+                .y(if (isPrimary) secondary.y else primary.y)
+                .alpha(if (swapped) {
+                    if (isPrimary) PRIMARY_DISPLAY_ALPHA else SECONDARY_DISPLAY_ALPHA
+                } else {
+                    if (isPrimary) SECONDARY_DISPLAY_ALPHA else PRIMARY_DISPLAY_ALPHA
+                })
+                .setDuration(ANIM_DURATION)
+                .setInterpolator(OvershootInterpolator())
+                .start()
+        }
 
-        ViewCompat
-            .animate(secondary)
-            .y(primary.y)
-            .alpha(if (swapped) SECONDARY_DISPLAY_ALPHA else PRIMARY_DISPLAY_ALPHA)
-            .setDuration(ANIM_DURATION)
-            .setInterpolator(OvershootInterpolator())
-            .start()
+        swap(primary, true)
+        swap(secondary, false)
 
         toggleSwapped()
     }
