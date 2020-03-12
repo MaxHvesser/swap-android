@@ -82,7 +82,6 @@ class HomeFragment : Fragment() {
         binding.homeDisplaySwap.primary.setOnClickListener { openCurrencySelection(true) }
         binding.homeDisplaySwap.secondary.setOnClickListener { openCurrencySelection() }
         binding.homeDisplaySwap.swapClickEvent.observe(viewLifecycleOwner, Observer {
-            // TODO improve performance and implementation here.
             binding.homeDisplayCurrency.animateSwap()
             val exchange = Exchange(0, exchange.to, exchange.from)
             this.exchange = exchange
