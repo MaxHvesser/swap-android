@@ -1,3 +1,10 @@
+<p align="center">
+   <img 
+       src="https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/swap_logo.png"
+       height="100">
+   <br/>
+</p>
+
 ## Swap - Currency Converter
 
 Swap is is a simple currency converter app for Android. More or less, what you see is what you get. You are able to select currencies from a list of the most used currencies and convert between them. The project focusses on having a small dependency footprint whilst using some of the latest cutting edge features that Android has to offer.
