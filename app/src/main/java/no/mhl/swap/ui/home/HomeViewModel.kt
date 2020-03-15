@@ -27,16 +27,19 @@ class HomeViewModel(
     // endregion
 
     // region Store and fetch exchange
-    fun fetchCurrentExchange() = liveData(Dispatchers.IO) {
-        emit(
-            when (exchangeRatesRepository.exchangeCount()) {
-                0 -> {
-                    storeDefaultExchange()
-                    exchangeRatesRepository.fetchExchangeFromDb()
-                }
-                else -> exchangeRatesRepository.fetchExchangeFromDb()
+    fun fetchCurrentExchange() = liveData<Exchange?>(Dispatchers.IO) {
+        fun checkExchangeCount() = exchangeRatesRepository.exchangeCount()
+
+        suspend fun emitResultsIfPossible() {
+            if (checkExchangeCount() > 0) {
+                emit(exchangeRatesRepository.fetchExchangeFromDb())
+            } else {
+                storeDefaultExchange()
+                emitResultsIfPossible()
             }
-        )
+        }
+
+        emitResultsIfPossible()
     }
 
     private fun storeDefaultExchange() = CoroutineScope(Dispatchers.IO).launch {
