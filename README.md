@@ -23,6 +23,10 @@ The project makes use of the following features;
 
 **Screenshots**
 
+| Splash | Home | Currency Selection |
+| ------------- | ------------- | ------------ |
+| ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/screen_splash.png)  | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/screen_home.png) | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/screen_selection_currency.png) | 
+
 **Download**
 
 The app is available to download through one of the three options;
