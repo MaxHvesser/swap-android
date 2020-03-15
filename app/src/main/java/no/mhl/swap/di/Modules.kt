@@ -2,7 +2,7 @@ package no.mhl.swap.di
 
 import androidx.room.Room
 import no.mhl.swap.application.Constants
-import no.mhl.swap.data.local.ClarenceDatabase
+import no.mhl.swap.data.local.SwapDatabase
 import no.mhl.swap.data.local.dao.ExchangeDao
 import no.mhl.swap.data.local.dao.RateDao
 import no.mhl.swap.data.remote.ExchangeRatesService
@@ -68,12 +68,12 @@ val exchangeRatesModule = module {
 
 // region Database Module
 val databaseModule = module {
-    single { Room.databaseBuilder(get(), ClarenceDatabase::class.java, "clarence-db").fallbackToDestructiveMigration().build() }
+    single { Room.databaseBuilder(get(), SwapDatabase::class.java, "clarence-db").fallbackToDestructiveMigration().build() }
     factory { provideRateDao(get())  }
     factory { provideExchangeDao(get())  }
 }
 
-fun provideRateDao(database: ClarenceDatabase): RateDao = database.rateDao()
+fun provideRateDao(database: SwapDatabase): RateDao = database.rateDao()
 
-fun provideExchangeDao(database: ClarenceDatabase): ExchangeDao = database.exchangeDao()
+fun provideExchangeDao(database: SwapDatabase): ExchangeDao = database.exchangeDao()
 // endregion

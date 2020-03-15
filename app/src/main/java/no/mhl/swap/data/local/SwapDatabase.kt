@@ -21,7 +21,7 @@ import no.mhl.swap.data.model.Rate
 @TypeConverters(
     Converters::class
 )
-abstract class ClarenceDatabase : RoomDatabase() {
+abstract class SwapDatabase : RoomDatabase() {
 
     // region Rates
     abstract fun rateDao(): RateDao
