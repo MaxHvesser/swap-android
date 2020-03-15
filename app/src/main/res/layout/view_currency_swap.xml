@@ -9,7 +9,7 @@
     tools:background="@color/backgroundPrimary">
 
     <!-- Currency Primary Chip -->
-    <no.mhl.clarence.ui.views.currencychip.CurrencyChip
+    <no.mhl.swap.ui.views.currencychip.CurrencyChip
         android:id="@+id/primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_marginEnd="@dimen/regular"/>
 
     <!-- Currency Secondary Chip -->
-    <no.mhl.clarence.ui.views.currencychip.CurrencyChip
+    <no.mhl.swap.ui.views.currencychip.CurrencyChip
         android:id="@+id/secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_marginStart="@dimen/regular"/>
 
     <!-- Swap Chip -->
-    <no.mhl.clarence.ui.views.currencychip.SwapChip
+    <no.mhl.swap.ui.views.currencychip.SwapChip
         android:id="@+id/swap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

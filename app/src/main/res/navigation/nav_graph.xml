@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="no.mhl.clarence.ui.home.HomeFragment"
+        android:name="no.mhl.swap.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/currencySelectionFragment"
-        android:name="no.mhl.clarence.ui.currencyselection.CurrencySelectionFragment"
+        android:name="no.mhl.swap.ui.currencyselection.CurrencySelectionFragment"
         android:label="CurrencySelectionFragment"
         tools:layout="@layout/fragment_currency_selection">
         <argument

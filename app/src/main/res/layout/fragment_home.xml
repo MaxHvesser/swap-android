@@ -9,7 +9,7 @@
     android:background="@color/backgroundPrimary">
 
     <!-- Currency Display -->
-    <no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
+    <no.mhl.swap.ui.views.currencydisplay.CurrencyDisplay
         android:id="@+id/home_display_currency"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Swap Currencies -->
-    <no.mhl.clarence.ui.views.currencyswap.CurrencySwap
+    <no.mhl.swap.ui.views.currencyswap.CurrencySwap
         android:id="@+id/home_display_swap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
-            <no.mhl.clarence.ui.views.keypad.KeypadView
+            <no.mhl.swap.ui.views.keypad.KeypadView
                 android:id="@+id/home_keypad_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/keypad_height"

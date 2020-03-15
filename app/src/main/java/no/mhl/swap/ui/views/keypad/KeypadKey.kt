@@ -1,0 +1,17 @@
+package no.mhl.swap.ui.views.keypad
+
+enum class KeypadKey(val value: Int) {
+    ZERO(0),
+    ONE(1),
+    TWO(2),
+    THREE(3),
+    FOUR(4),
+    FIVE(5),
+    SIX(6),
+    SEVEN(7),
+    EIGHT(8),
+    NINE(9),
+    DECIMAL(-1),
+    BACKSPACE(-2),
+    CLEAR(-3)
+}
