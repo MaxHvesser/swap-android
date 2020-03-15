@@ -31,8 +31,8 @@ The project makes use of the following features;
 
 The app is available to download through one of the three options;
 
-- Play Store 
-- F-Droid
+- Play Store (link coming soon)
+- F-Droid (link coming soon)
 - [Releases](https://github.com/MaxHvesser/swap-android/releases)
 
 **License** 
