@@ -74,11 +74,16 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
         swap(secondary, false)
 
         toggleSwapped()
+        tidyTrailing()
     }
     // endregion
 
     // region Misc
     private fun toggleSwapped() { swapped = swapped.not() }
+
+    private fun tidyTrailing() {
+            focusedDetail.value = focusedDetail.value.replace(".00", "")
+    }
     // endregion
 
 }
