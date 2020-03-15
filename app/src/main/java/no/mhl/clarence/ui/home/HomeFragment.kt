@@ -12,12 +12,7 @@ import androidx.navigation.fragment.findNavController
 import no.mhl.clarence.data.model.Exchange
 import no.mhl.clarence.data.model.Rate
 import no.mhl.clarence.databinding.FragmentHomeBinding
-import no.mhl.clarence.ui.views.currencydisplay.CurrencyDisplay
-import no.mhl.clarence.ui.views.currencyswap.CurrencySwap
-import no.mhl.clarence.ui.views.keypad.KeypadKey
-import no.mhl.clarence.util.consumeKeyForDisplay
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
