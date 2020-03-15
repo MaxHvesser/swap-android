@@ -20,7 +20,8 @@
         <!-- region Activities -->
         <!-- Splash Activity -->
         <activity
-            android:name=".ui.splash.SplashActivity">
+            android:name=".ui.splash.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -30,7 +31,8 @@
 
         <!-- Home Activity -->
         <activity
-            android:name=".ui.main.MainActivity"/>
+            android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait"/>
         <!-- endregion -->
 
     </application>
