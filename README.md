@@ -31,9 +31,9 @@ The project makes use of the following features;
 
 **Download**
 
-The app is available to download through one of the three options;
+The app is available to download through one of two options;
 
-- Play Store (link coming soon)
+- Play Store [Pending publication]
 - [Releases](https://github.com/MaxHvesser/swap-android/releases)
 
 **License** 
