@@ -33,7 +33,7 @@ The project makes use of the following features;
 
 The app is available to download through one of two options;
 
-- Play Store [Pending publication]
+- [Play Store](https://play.google.com/store/apps/details?id=no.mhl.swap)
 - [Releases](https://github.com/MaxHvesser/swap-android/releases)
 
 **License** 
