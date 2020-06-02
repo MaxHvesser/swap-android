@@ -18,8 +18,10 @@ class ExchangeRatesRepository(
     // endregion
 
     // region Database IO
-    fun storeAllRatesInDb(rates: List<Rate>) =
+    fun clearRatesAndStore(rates: List<Rate>) {
+        rateDao.dropAllRates()
         rateDao.addAllRates(rates)
+    }
 
     fun fetchRateForBaseFromDb(base: String) =
         rateDao.fetchRateForBase(base)
@@ -43,12 +45,6 @@ class ExchangeRatesRepository(
         deleteExchangeFromDb()
         storeExchangeInDb(exchange)
     }
-
-    fun ratesCount() =
-        rateDao.count()
-
-    fun updateRates(rates: List<Rate>) =
-        rateDao.updateAllRates(rates)
     // endregion
 
 }
