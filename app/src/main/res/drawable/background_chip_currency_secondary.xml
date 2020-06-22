@@ -9,6 +9,6 @@
 
     <!-- Color -->
     <solid
-        android:color="@color/textMedium"/>
+        android:color="@color/textAccent"/>
 
 </shape>

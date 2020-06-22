@@ -15,7 +15,7 @@
         android:textSize="@dimen/text_huge"
         android:fontFamily="@font/roboto_mono_medium"
         android:includeFontPadding="false"
-        android:textColor="@color/textStrong"
+        android:textColor="@color/textPrimary"
         android:singleLine="true"
         android:ellipsize="marquee"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +30,7 @@
         android:textSize="@dimen/text_tiny"
         android:fontFamily="@font/roboto_mono_light"
         android:includeFontPadding="false"
-        android:textColor="@color/textMedium"
+        android:textColor="@color/textSecondary"
         app:layout_constraintTop_toBottomOf="@id/value"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Great British Pounds"/>

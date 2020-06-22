@@ -2,22 +2,23 @@
 <resources>
 
     <!-- region Branding -->
-    <color name="colorPrimary">#060F1B</color>
-    <color name="colorPrimaryDark">#141F2F</color>
-    <color name="colorAccent">#FFCB00</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#F9F9F9</color>
+    <color name="colorAccent">@color/backgroundAccent</color>
     <!-- endregion -->
 
     <!-- region General -->
-    <color name="backgroundPrimary">#060F1B</color>
-    <color name="backgroundSecondary">#141F2F</color>
-    <color name="backgroundAccent">#1A283C</color>
-    <color name="ripplePrimary">#0DFFFFFF</color>
+    <color name="backgroundPrimary">#F9F9F9</color>
+    <color name="backgroundSecondary">#FFFFFF</color>
+    <color name="backgroundAccent">#EEEEEE</color>
+    <color name="ripplePrimary">@color/backgroundAccent</color>
     <!-- endregion -->
 
     <!-- region Text -->
-    <color name="textMedium">#80FFFFFF</color>
-    <color name="textStrong">#FFFFFF</color>
-    <color name="textStrongSecondary">#99FFFFFF</color>
+    <color name="textPrimary">#000000</color>
+    <color name="textSecondary">#80000000</color>
+    <color name="textAccent">#4D000000</color>
+    <color name="textLight">#33000000</color>
     <!-- endregion -->
 
     <!-- region Rule -->

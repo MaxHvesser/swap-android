@@ -19,7 +19,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:textColor="@android:color/white"
         android:hint="@string/currency_selection_search_hint"
-        android:textColorHint="@color/textMedium"
+        android:textColorHint="@color/textAccent"
         android:fontFamily="@font/roboto_mono_medium"
         android:textSize="@dimen/text_regular"
         android:background="@drawable/background_keypad"
@@ -30,7 +30,7 @@
         android:paddingEnd="@dimen/medium"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="@dimen/small"
-        android:drawableTint="@color/textMedium"
+        app:drawableTint="@color/textAccent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
