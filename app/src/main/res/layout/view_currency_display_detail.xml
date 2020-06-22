@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_massive"
-        android:fontFamily="@font/quicksand_medium"
+        android:fontFamily="@font/roboto_mono_medium"
         android:includeFontPadding="false"
         android:textColor="@color/textStrong"
         android:singleLine="true"
@@ -23,12 +23,13 @@
         tools:text="20,456,983 00000000000000000"/>
 
     <!-- Name -->
+    <!-- Name -->
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_regular"
-        android:fontFamily="@font/quicksand_medium"
+        android:fontFamily="@font/roboto_mono_medium"
         android:includeFontPadding="false"
         android:textColor="@color/textMedium"
         app:layout_constraintTop_toBottomOf="@id/value"
