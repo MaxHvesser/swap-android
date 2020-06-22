@@ -2,7 +2,7 @@
 <resources>
 
     <!-- region Keypad -->
-    <dimen name="keypad_height">250dp</dimen>
+    <dimen name="keypad_height">214dp</dimen>
     <!-- endregion -->
 
     <!-- region Currency Row -->
