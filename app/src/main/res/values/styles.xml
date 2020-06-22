@@ -20,7 +20,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:background">@drawable/ripple_keypad</item>
-        <item name="android:textSize">@dimen/text_larger</item>
+        <item name="android:textSize">@dimen/text_large</item>
         <item name="android:fontFamily">@font/roboto_mono_medium</item>
         <item name="android:textColor">@color/textStrong</item>
     </style>

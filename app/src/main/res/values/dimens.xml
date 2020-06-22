@@ -43,8 +43,7 @@
     <dimen name="text_regular">16sp</dimen>
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_larger">26sp</dimen>
-    <dimen name="text_huge">30sp</dimen>
-    <dimen name="text_massive">40sp</dimen>
+    <dimen name="text_huge">32sp</dimen>
     <!-- endregion -->
 
     <!-- region Rule -->
