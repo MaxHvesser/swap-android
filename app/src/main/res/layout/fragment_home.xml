@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/small"
         android:paddingEnd="@dimen/small"
-        android:paddingBottom="@dimen/large"
+        android:layout_marginBottom="@dimen/medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
