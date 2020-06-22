@@ -14,3 +14,6 @@ android:
       - build-tools-30.0.0
       - android-30
       - extra-android-m2repository
+
+before_install:
+  - yes | sdkmanager "platforms;android-30"
