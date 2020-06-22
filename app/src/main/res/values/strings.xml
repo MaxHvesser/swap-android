@@ -1,7 +1,7 @@
 <resources>
 
     <!-- region App Name -->
-    <string name="app_name">Swap</string>
+    <string name="app_name">swap</string>
     <!-- endregion -->
 
     <!-- region Keypad -->
