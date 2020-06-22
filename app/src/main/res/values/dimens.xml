@@ -13,6 +13,7 @@
     <dimen name="currency_display_dropdown_arrow_size">10dp</dimen>
     <dimen name="currency_display_flag_size">24dp</dimen>
     <dimen name="currency_display_value_primary_text_size">46sp</dimen>
+    <dimen name="currency_display_arrow_right_size">20dp</dimen>
     <!-- endregion -->
 
     <!-- region Currency Chips -->
