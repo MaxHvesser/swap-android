@@ -3,6 +3,7 @@
 
     <!-- region Keypad -->
     <dimen name="keypad_height">214dp</dimen>
+    <dimen name="keypad_backspace_scale">.8</dimen>
     <!-- endregion -->
 
     <!-- region Currency Row -->
