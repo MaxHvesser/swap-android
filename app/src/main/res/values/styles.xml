@@ -1,18 +1,29 @@
 <resources
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- region App Theme -->
-    <style name="AppTheme" parent="Theme.Design.NoActionBar">
+    <!-- region Base Theme -->
+    <style name="BaseTheme" parent="Theme.Design.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/backgroundPrimary</item>
+        <item name="android:windowBackground">@color/backgroundSecondary</item>
 
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/backgroundPrimary</item>
 
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Splash Theme -->
+    <style name="SplashTheme" parent="BaseTheme">
+        <item name="android:navigationBarColor">@color/backgroundSecondary</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region App Theme -->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:navigationBarColor">@color/backgroundPrimary</item>
     </style>
     <!-- endregion -->
 
