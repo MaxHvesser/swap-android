@@ -23,7 +23,6 @@
         tools:text="20,456,983 00000000000000000"/>
 
     <!-- Name -->
-    <!-- Name -->
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
