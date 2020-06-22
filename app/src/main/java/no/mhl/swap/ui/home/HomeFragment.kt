@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
     private fun setupView() {
         setupViewInsets()
         setupKeypadView()
-        setupCurrencyChips()
+        setupCurrencyDisplay()
         restoreFragmentState()
     }
 
@@ -73,16 +73,16 @@ class HomeFragment : Fragment() {
     // endregion
 
     // region Currency Display Setup
-    private fun setupCurrencyChips() {
-        binding.homeDisplaySwap.primary.setOnClickListener { openCurrencySelection(true) }
-        binding.homeDisplaySwap.secondary.setOnClickListener { openCurrencySelection() }
-        binding.homeDisplaySwap.swapClickEvent.observe(viewLifecycleOwner, Observer {
+    private fun setupCurrencyDisplay() {
+        binding.homeDisplayCurrency.primary.setOnClickListener { openCurrencySelection(true) }
+        binding.homeDisplayCurrency.secondary.setOnClickListener { openCurrencySelection() }
+        binding.homeDisplayCurrency.swapFab.setOnClickListener {
             binding.homeDisplayCurrency.animateSwap()
             val exchange = Exchange(0, exchange.to, exchange.from)
             this.exchange = exchange
             homeViewModel.replaceExchange(exchange)
             fetchRateForBase(false)
-        })
+        }
     }
     // endregion
 
@@ -146,8 +146,6 @@ class HomeFragment : Fragment() {
     private fun setupCurrencyDetails() {
         binding.homeDisplayCurrency.primary.name = exchange.from.fullName
         binding.homeDisplayCurrency.secondary.name = exchange.to.fullName
-        binding.homeDisplaySwap.setupPrimaryChipForCurrency(exchange.from)
-        binding.homeDisplaySwap.setupSecondaryChipForCurrency(exchange.to)
     }
     // endregion
 

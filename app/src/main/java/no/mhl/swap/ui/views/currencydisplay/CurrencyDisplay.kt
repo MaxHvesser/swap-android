@@ -6,6 +6,8 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
+import androidx.lifecycle.MutableLiveData
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import no.mhl.swap.R
 import no.mhl.swap.application.Constants.ANIM_DURATION
 import no.mhl.swap.application.Constants.PRIMARY_DISPLAY_ALPHA
@@ -21,6 +23,7 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
     // region View Properties
     val primary: CurrencyDisplayDetail by lazy { findViewById<CurrencyDisplayDetail>(R.id.primary) }
     val secondary: CurrencyDisplayDetail by lazy { findViewById<CurrencyDisplayDetail>(R.id.secondary) }
+    val swapFab: FloatingActionButton by lazy { findViewById<FloatingActionButton>(R.id.swap_fab) }
     // endregion
 
     // region Properties

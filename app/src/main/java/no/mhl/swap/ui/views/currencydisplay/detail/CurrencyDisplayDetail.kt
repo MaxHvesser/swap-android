@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import no.mhl.swap.R
 
 // region Static Constants
-private const val SECONDARY_DISPLAY_ALPHA: Float = 0.75f
+private const val SECONDARY_DISPLAY_ALPHA: Float = 0.80f
 // endregion
 
 class CurrencyDisplayDetail(context: Context, private val attrs: AttributeSet?) :
