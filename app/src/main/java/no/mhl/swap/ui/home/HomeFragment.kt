@@ -60,6 +60,10 @@ class HomeFragment : Fragment() {
             v.updatePadding(bottom = insets.systemWindowInsetBottom)
             insets
         }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.homeTitle) { v, insets ->
+            v.updatePadding(top = insets.systemWindowInsetTop)
+            insets
+        }
     }
     // endregion
 
