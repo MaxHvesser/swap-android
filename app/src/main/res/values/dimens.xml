@@ -22,7 +22,7 @@
     <!-- endregion -->
 
     <!-- region Splash -->
-    <dimen name="splash_logo_size">80dp</dimen>
+    <dimen name="splash_logo_size">120dp</dimen>
     <!-- endregion -->
 
     <!-- region Home -->
