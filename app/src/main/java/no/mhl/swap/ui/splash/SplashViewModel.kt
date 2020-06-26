@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import no.mhl.swap.data.model.Rate
 import no.mhl.swap.data.model.mapToRate
 import no.mhl.swap.repository.ExchangeRatesRepository
-import no.mhl.swap.util.generateCurrencyList
+import no.mhl.swap.util.currencyList
 import java.lang.Exception
 
 class SplashViewModel(
@@ -29,7 +29,7 @@ class SplashViewModel(
         downloadStatus.postValue(0)
         val rates: MutableList<Rate> = mutableListOf()
 
-        generateCurrencyList().forEach { currency ->
+        currencyList().flatMap{ it.currencies }.forEach { currency ->
             try {
                 val latest = exchangeRatesRepository.fetchLatestExchangeRatesForBase(currency.name)
                 rates.add(mapToRate(latest))

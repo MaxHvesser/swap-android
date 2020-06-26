@@ -1,43 +1,94 @@
 package no.mhl.swap.util
 
 import no.mhl.swap.R
+import no.mhl.swap.data.model.Continent
 import no.mhl.swap.data.model.Currency
 
 // region Currency List Generation
-fun generateCurrencyList(): List<Currency> = listOf(
-    Currency("AUD", "Australian Dollars"),
-    Currency("BGN", "Bulgarian Lev"),
-    Currency("BRL", "Brazilian Real"),
-    Currency("CAD", "Canadian Dollars"),
-    Currency("CHF", "Swiss Francs"),
-    Currency("CNY", "Chinese Yuan"),
-    Currency("CZK", "Czech Koruna"),
-    Currency("DKK", "Danish Kroner"),
-    Currency("EUR", "Euros"),
-    Currency("GBP", "Great British Pounds"),
-    Currency("HKD", "Hong Kong Dollars"),
-    Currency("HRK", "Croatian Kuna"),
-    Currency("HUF", "Hungarian Forint"),
-    Currency("IDR", "Indonesian Rupiajh"),
-    Currency("ILS", "Israeli New Shekel"),
-    Currency("INR", "Indian Rupee"),
-    Currency("ISK", "Icelandic Kroner"),
-    Currency("JPY", "Japanese Yen"),
-    Currency("KRW", "South Korean Won"),
-    Currency("MXN", "Mexican Peso"),
-    Currency("MYR", "Malaysian Ringgit"),
-    Currency("NOK", "Norwegian Kroner"),
-    Currency("NZD", "New Zealand Dollars"),
-    Currency("PHP", "Philippine Peso"),
-    Currency("PLN", "Poland Zloty"),
-    Currency("RON", "Romanian Leu"),
-    Currency("RUB", "Russian Ruble"),
-    Currency("SEK", "Swedish Kroner"),
-    Currency("SGD", "Singapore Dollar"),
-    Currency("THB", "Thai Baht"),
-    Currency("TRY", "Turkish Lira"),
-    Currency("USD", "United States Dollars"),
-    Currency("ZAR", "South African Rand")
+/***
+ * Fetch a complete list of currencies for each continent of the world.
+ * @return a List of Continent
+ */
+fun currencyList(): List<Continent> {
+    return listOf(
+        africa(),
+        asia(),
+        australia(),
+        europe(),
+        northAmerica(),
+        southAmerica()
+    )
+}
+
+private fun africa() = Continent(
+    CONT_AFRICA,
+    listOf(
+        Currency("ZAR", "South African Rand")
+    )
+)
+
+private fun asia() = Continent(
+    CONT_ASIA,
+    listOf(
+        Currency("CNY", "Chinese Yuan"),
+        Currency("HKD", "Hong Kong Dollars"),
+        Currency("IDR", "Indonesian Rupiajh"),
+        Currency("ILS", "Israeli New Shekel"),
+        Currency("INR", "Indian Rupee"),
+        Currency("JPY", "Japanese Yen"),
+        Currency("KRW", "South Korean Won"),
+        Currency("MYR", "Malaysian Ringgit"),
+        Currency("PHP", "Philippine Peso"),
+        Currency("SGD", "Singapore Dollar"),
+        Currency("THB", "Thai Baht"),
+        Currency("TRY", "Turkish Lira")
+    )
+)
+
+private fun australia() = Continent(
+    CONT_AUSTRALIA,
+    listOf(
+        Currency("AUD", "Australian Dollars"),
+        Currency("NZD", "New Zealand Dollars")
+    )
+)
+
+private fun europe() = Continent(
+    CONT_EUROPE,
+    listOf(
+        Currency("BGN", "Bulgarian Lev"),
+        Currency("CHF", "Swiss Francs"),
+        Currency("CNY", "Chinese Yuan"),
+        Currency("CZK", "Czech Koruna"),
+        Currency("DKK", "Danish Kroner"),
+        Currency("EUR", "Euros"),
+        Currency("GBP", "Great British Pounds"),
+        Currency("HRK", "Croatian Kuna"),
+        Currency("HUF", "Hungarian Forint"),
+        Currency("ISK", "Icelandic Kroner"),
+        Currency("NOK", "Norwegian Kroner"),
+        Currency("NZD", "New Zealand Dollars"),
+        Currency("PLN", "Poland Zloty"),
+        Currency("RON", "Romanian Leu"),
+        Currency("RUB", "Russian Ruble"),
+        Currency("SEK", "Swedish Kroner")
+    )
+)
+
+private fun northAmerica() = Continent(
+    CONT_NORTH_AMERICA,
+    listOf(
+        Currency("USD", "United States Dollars"),
+        Currency("CAD", "Canadian Dollars")
+    )
+)
+
+private fun southAmerica() = Continent(
+    CONT_SOUTH_AMERICA,
+    listOf(
+        Currency("BRL", "Brazilian Real"),
+        Currency("MXN", "Mexican Peso")
+    )
 )
 // endregion
 
@@ -80,4 +131,13 @@ fun currencyAsDrawable(name: String): Int {
         else -> R.drawable.ic_eur
     }
 }
+// endregion
+
+// region Static Constant Values
+private const val CONT_AFRICA = "africa"
+private const val CONT_ASIA = "asia"
+private const val CONT_AUSTRALIA = "australia"
+private const val CONT_EUROPE = "europe"
+private const val CONT_NORTH_AMERICA = "north america"
+private const val CONT_SOUTH_AMERICA = "south america"
 // endregion
