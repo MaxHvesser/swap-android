@@ -19,6 +19,7 @@
     <!-- endregion -->
 
     <!-- region Currency Selection -->
+    <string name="currency_selection_title">Select currency</string>
     <string name="currency_selection_search_hint">Search currency</string>
     <!-- endregion -->
 

@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/regular"
-    android:paddingBottom="@dimen/regular"
-    android:paddingStart="@dimen/medium"
-    android:paddingEnd="@dimen/medium"
-    android:background="@drawable/ripple_item_currency">
+    android:layout_height="44dp"
+    android:paddingStart="@dimen/regular"
+    android:paddingEnd="@dimen/regular"
+    android:layout_marginStart="@dimen/regular"
+    android:layout_marginEnd="@dimen/regular"
+    android:background="@color/backgroundSecondary">
 
     <!-- Emoji Flag -->
     <ImageView
@@ -19,20 +19,20 @@
         android:src="@drawable/ic_hkd"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Currency Name -->
     <TextView
         android:id="@+id/row_currency_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/regular"
-        android:textSize="@dimen/text_large"
+        android:textSize="@dimen/text_tiny"
         android:textColor="@color/textPrimary"
         android:fontFamily="@font/roboto_mono_medium"
         android:includeFontPadding="false"
-        app:layout_constraintStart_toEndOf="@id/row_currency_flag"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="HKD"/>
 
     <!-- Currency Full name -->
@@ -41,12 +41,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/regular"
-        android:textSize="@dimen/text_small"
+        android:textSize="@dimen/text_tiny"
         android:textColor="@color/textSecondary"
         android:fontFamily="@font/roboto_mono_medium"
         android:includeFontPadding="false"
-        app:layout_constraintStart_toEndOf="@id/row_currency_flag"
-        app:layout_constraintTop_toBottomOf="@id/row_currency_name"
+        android:layout_marginEnd="@dimen/regular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/row_currency_flag"
         tools:text="Hong Kong Dollars"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

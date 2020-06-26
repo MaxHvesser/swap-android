@@ -8,7 +8,25 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundPrimary">
 
+    <!-- Title -->
+    <TextView
+        android:id="@+id/currency_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currency_selection_title"
+        android:fontFamily="@font/roboto_mono_medium"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/text_larger"
+        android:layout_marginTop="@dimen/large"
+        android:layout_marginStart="@dimen/regular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <!-- Search Bar -->
+    <!--
+        Currently hidden due to new groupings of currencies, meaning search isnt
+        required at this time
+    -->
     <EditText
         android:id="@+id/search_edit_text"
         android:layout_width="match_parent"
@@ -21,16 +39,17 @@
         android:hint="@string/currency_selection_search_hint"
         android:textColorHint="@color/textAccent"
         android:fontFamily="@font/roboto_mono_medium"
-        android:textSize="@dimen/text_regular"
+        android:textSize="@dimen/text_small"
         android:background="@drawable/background_keypad"
         android:layout_margin="@dimen/regular"
-        android:paddingTop="@dimen/regular"
-        android:paddingBottom="@dimen/regular"
-        android:paddingStart="@dimen/medium"
-        android:paddingEnd="@dimen/medium"
+        android:paddingTop="@dimen/small"
+        android:paddingBottom="@dimen/small"
+        android:paddingStart="@dimen/regular"
+        android:paddingEnd="@dimen/regular"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="@dimen/small"
         app:drawableTint="@color/textAccent"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -40,8 +59,8 @@
         android:id="@+id/currency_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/regular"
-        app:layout_constraintTop_toBottomOf="@id/search_edit_text"
+        android:layout_marginTop="@dimen/medium"
+        app:layout_constraintTop_toBottomOf="@id/currency_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

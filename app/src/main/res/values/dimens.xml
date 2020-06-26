@@ -7,7 +7,7 @@
     <!-- endregion -->
 
     <!-- region Currency Row -->
-    <dimen name="currency_row_flag_size">24dp</dimen>
+    <dimen name="currency_row_flag_size">14dp</dimen>
     <!-- endregion -->
 
     <!-- region Currency Display -->
