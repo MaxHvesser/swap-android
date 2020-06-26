@@ -17,10 +17,6 @@
     <dimen name="currency_display_arrow_right_size">20dp</dimen>
     <!-- endregion -->
 
-    <!-- region Currency Chips -->
-    <dimen name="currency_chip_icon">14dp</dimen>
-    <!-- endregion -->
-
     <!-- region Splash -->
     <dimen name="splash_logo_size">120dp</dimen>
     <!-- endregion -->
@@ -50,6 +46,10 @@
 
     <!-- region Rule -->
     <dimen name="rule_height">1dp</dimen>
+    <!-- endregion -->
+
+    <!-- region Currency Selection -->
+    <dimen name="currency_selection_app_bar_expanded_height">120dp</dimen>
     <!-- endregion -->
 
 </resources>
