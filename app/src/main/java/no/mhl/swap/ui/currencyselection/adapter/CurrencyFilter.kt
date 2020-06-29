@@ -2,12 +2,13 @@ package no.mhl.swap.ui.currencyselection.adapter
 
 import android.widget.Filter
 import no.mhl.swap.data.model.Currency
+import no.mhl.swap.data.model.view.CurrencyListItem
 import java.util.*
 
 
 class CurrencyFilter(
     private val adapter: CurrencyRecyclerAdapter,
-    private val currencyItems: List<Currency>
+    private val currencyItems: List<CurrencyListItem>
 ) : Filter() {
 
     // region Properties
@@ -20,22 +21,22 @@ class CurrencyFilter(
 
         val results = FilterResults()
 
-        filteredCurrencies.addAll(currencyItems.filter { currency ->
-            val searchTerm = constraint.toString().toLowerCase(Locale.getDefault()).trim()
-            val name = currency.name.toLowerCase(Locale.getDefault()).trim()
-            val fullName = currency.fullName.toLowerCase(Locale.getDefault()).trim()
-
-            return@filter when {
-                name.contains(searchTerm) -> true
-                fullName.contains(searchTerm) -> true
-                else -> false
-            }
-        })
-
-        results.apply {
-            values = filteredCurrencies
-            count = filteredCurrencies.count()
-        }
+//        filteredCurrencies.addAll(currencyItems.filter { currency ->
+//            val searchTerm = constraint.toString().toLowerCase(Locale.getDefault()).trim()
+//            val name = currency.name.toLowerCase(Locale.getDefault()).trim()
+//            val fullName = currency.fullName.toLowerCase(Locale.getDefault()).trim()
+//
+//            return@filter when {
+//                name.contains(searchTerm) -> true
+//                fullName.contains(searchTerm) -> true
+//                else -> false
+//            }
+//        })
+//
+//        results.apply {
+//            values = filteredCurrencies
+//            count = filteredCurrencies.count()
+//        }
 
         return results
     }

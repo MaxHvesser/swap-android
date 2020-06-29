@@ -13,12 +13,11 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import no.mhl.swap.data.model.Continent
 import no.mhl.swap.data.model.Currency
 import no.mhl.swap.databinding.FragmentCurrencySelectionBinding
 import no.mhl.swap.ui.currencyselection.adapter.CurrencyRecyclerAdapter
 import no.mhl.swap.ui.home.HomeViewModel
-import no.mhl.swap.util.currencyList
+import no.mhl.swap.util.currencyItemList
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class CurrencySelectionFragment : Fragment() {
@@ -26,8 +25,8 @@ class CurrencySelectionFragment : Fragment() {
     // region Properties
     private val homeViewModel: HomeViewModel by sharedViewModel()
     private val linearLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
-    private val currencyRates: List<Continent> = currencyList()
-    private val currencyRecyclerAdapter: CurrencyRecyclerAdapter = CurrencyRecyclerAdapter(currencyRates.flatMap { it.currencies })
+    private val currencyItems = currencyItemList()
+    private val currencyRecyclerAdapter: CurrencyRecyclerAdapter = CurrencyRecyclerAdapter(currencyItems)
     // endregion
 
     // region View Properties

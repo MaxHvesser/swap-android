@@ -3,6 +3,8 @@ package no.mhl.swap.util
 import no.mhl.swap.R
 import no.mhl.swap.data.model.Continent
 import no.mhl.swap.data.model.Currency
+import no.mhl.swap.data.model.view.CurrencyListItem
+import no.mhl.swap.data.model.view.Header
 
 // region Currency List Generation
 /***
@@ -18,6 +20,17 @@ fun currencyList(): List<Continent> {
         northAmerica(),
         southAmerica()
     )
+}
+
+fun currencyItemList(): List<CurrencyListItem> {
+    val items = mutableListOf<CurrencyListItem>()
+
+    currencyList().forEach { continent ->
+        items.add(Header(continent.title))
+        items.addAll(continent.currencies)
+    }
+
+    return items
 }
 
 private fun africa() = Continent(
