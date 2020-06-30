@@ -9,20 +9,22 @@
         <item name="android:windowBackground">@color/backgroundSecondary</item>
 
         <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 
+    <style name="BaseLightTheme" parent="BaseTheme">
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>
     <!-- endregion -->
 
     <!-- region Splash Theme -->
-    <style name="SplashTheme" parent="BaseTheme">
+    <style name="SplashTheme" parent="BaseLightTheme">
         <item name="android:navigationBarColor">@color/backgroundSecondary</item>
     </style>
     <!-- endregion -->
 
     <!-- region App Theme -->
-    <style name="AppTheme" parent="BaseTheme">
+    <style name="AppTheme" parent="BaseLightTheme">
         <item name="android:navigationBarColor">@color/backgroundPrimary</item>
     </style>
     <!-- endregion -->
