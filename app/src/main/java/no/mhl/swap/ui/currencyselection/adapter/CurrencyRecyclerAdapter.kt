@@ -18,7 +18,7 @@ import no.mhl.swap.ui.currencyselection.adapter.viewholder.HeaderItemViewHolder
 import java.lang.IllegalArgumentException
 
 class CurrencyRecyclerAdapter(
-    val items: List<CurrencyListItem>
+    private val items: List<CurrencyListItem>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     // region Filter
@@ -28,12 +28,6 @@ class CurrencyRecyclerAdapter(
 
     // region Click Exposure
     val currencyClickEvent: MutableLiveData<Currency> = MutableLiveData()
-    // endregion
-
-    // region Initialisation
-    init {
-        filteredCurrencies.addAll(items)
-    }
     // endregion
 
     // region Holder Creation
@@ -64,7 +58,7 @@ class CurrencyRecyclerAdapter(
     // endregion
 
     // region Misc
-    override fun getItemCount() = filteredCurrencies.count()
+    override fun getItemCount() = items.count()
 
     override fun getItemViewType(position: Int) = items[position].type
 
