@@ -16,7 +16,7 @@
         android:id="@+id/row_currency_flag"
         android:layout_width="@dimen/currency_row_flag_size"
         android:layout_height="@dimen/currency_row_flag_size"
-        android:src="@drawable/ic_hkd"
+        tools:src="@drawable/ic_hkd"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
