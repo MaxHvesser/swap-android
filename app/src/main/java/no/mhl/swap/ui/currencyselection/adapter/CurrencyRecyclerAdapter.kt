@@ -55,7 +55,9 @@ class CurrencyRecyclerAdapter(
             HEADER -> (holder as HeaderItemViewHolder).bind(items[position] as Header)
             CURRENCY -> (holder as CurrencyItemViewHolder).bind(
                 items[position] as Currency,
-                currencyClickEvent
+                currencyClickEvent,
+                items[position - 1],
+                if (position + 1 <= items.lastIndex) items[position + 1] else null
             )
         }
     }

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/textAccent"
         android:fontFamily="@font/roboto_mono_regular"
-        android:textSize="@dimen/text_tiny"
+        android:textSize="@dimen/text_micro"
         android:layout_marginTop="@dimen/medium"
         android:layout_marginStart="@dimen/large"
         android:layout_marginBottom="@dimen/small"
