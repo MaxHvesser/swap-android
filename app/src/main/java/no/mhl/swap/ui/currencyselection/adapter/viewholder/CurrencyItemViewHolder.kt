@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import no.mhl.swap.R
@@ -64,7 +65,7 @@ class CurrencyItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     // region Background Resource Generation
     private fun generateBackground(placement: Placement) = GradientDrawable().apply {
-        setColor(Color.WHITE)
+        setColor(ContextCompat.getColor(itemView.context, R.color.backgroundSecondary))
         cornerRadii = when (placement) {
             Placement.TOP -> floatArrayOf(small, small, small, small, 0f, 0f, 0f, 0f)
             Placement.MIDDLE -> floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
