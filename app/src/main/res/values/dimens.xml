@@ -51,6 +51,7 @@
 
     <!-- region Currency Selection -->
     <dimen name="currency_selection_app_bar_expanded_height">120dp</dimen>
+    <dimen name="currency_selection_recycler_padding_bottom">104dp</dimen>
     <!-- endregion -->
 
 </resources>

@@ -21,15 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:expandedTitleGravity="bottom"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:expandedTitleMarginStart="@dimen/regular"
             app:expandedTitleTextAppearance="@style/AppTheme.Toolbar.Title.Expanded"
             app:collapsedTitleTextAppearance="@style/AppTheme.Toolbar.Title.Collapsed">
             <com.google.android.material.appbar.MaterialToolbar
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                app:title="@string/currency_selection_title"
                 app:layout_collapseMode="pin"
+                app:title="@string/currency_selection_title"
                 style="@style/AppTheme.Toolbar"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -71,7 +71,10 @@
         android:id="@+id/currency_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/currency_selection_recycler_padding_bottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:itemCount="30"
         tools:listitem="@layout/row_item_currency"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
