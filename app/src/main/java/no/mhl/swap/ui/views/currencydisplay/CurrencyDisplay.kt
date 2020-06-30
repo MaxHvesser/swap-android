@@ -69,6 +69,8 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
                 })
                 .setDuration(ANIM_DURATION)
                 .setInterpolator(OvershootInterpolator())
+                .withStartAction { swapFab.isClickable = false }
+                .withEndAction { swapFab.isClickable = true }
                 .start()
         }
 
