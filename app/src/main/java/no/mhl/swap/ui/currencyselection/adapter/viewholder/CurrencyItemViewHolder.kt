@@ -1,10 +1,11 @@
 package no.mhl.swap.ui.currencyselection.adapter.viewholder
 
-import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
@@ -53,7 +54,7 @@ class CurrencyItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     ) {
         if (previousItem == null) return
 
-        parent.background = generateBackground(when {
+        parent.background = backgroundForPlacement(when {
             followingItem == null -> Placement.BOTTOM
             previousItem.type == HEADER && followingItem.type == HEADER -> Placement.SINGLE
             previousItem.type == HEADER -> Placement.TOP
@@ -64,14 +65,16 @@ class CurrencyItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     // endregion
 
     // region Background Resource Generation
-    private fun generateBackground(placement: Placement) = GradientDrawable().apply {
-        setColor(ContextCompat.getColor(itemView.context, R.color.backgroundSecondary))
-        cornerRadii = when (placement) {
-            Placement.TOP -> floatArrayOf(small, small, small, small, 0f, 0f, 0f, 0f)
-            Placement.MIDDLE -> floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
-            Placement.BOTTOM -> floatArrayOf(0f, 0f, 0f, 0f, small, small, small, small)
-            Placement.SINGLE -> floatArrayOf(small, small, small, small, small, small, small, small)
-        }
+    private fun backgroundForPlacement(placement: Placement): Drawable {
+        fun getDrawable(@DrawableRes resource: Int) =
+            ContextCompat.getDrawable(itemView.context, resource)
+
+        return getDrawable(when (placement) {
+            Placement.TOP -> R.drawable.ripple_item_currency_top
+            Placement.MIDDLE -> R.drawable.ripple_item_currency_middle
+            Placement.BOTTOM -> R.drawable.ripple_item_currency_bottom
+            Placement.SINGLE -> R.drawable.ripple_item_currency_single
+        })?: GradientDrawable()
     }
     // endregion
 
