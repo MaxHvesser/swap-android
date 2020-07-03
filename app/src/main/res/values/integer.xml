@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <integer name="fragment_transition_anim_duraction">300</integer>
+    <integer name="fragment_transition_anim_duraction">250</integer>
 
 </resources>

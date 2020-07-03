@@ -6,12 +6,9 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
-import androidx.lifecycle.MutableLiveData
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import no.mhl.swap.R
 import no.mhl.swap.application.Constants.ANIM_DURATION
-import no.mhl.swap.application.Constants.PRIMARY_DISPLAY_ALPHA
-import no.mhl.swap.application.Constants.SECONDARY_DISPLAY_ALPHA
 import no.mhl.swap.ui.views.currencydisplay.detail.CurrencyDisplayDetail
 import no.mhl.swap.ui.views.keypad.KeypadKey
 import no.mhl.swap.util.consumeKeyForDisplay
@@ -62,11 +59,6 @@ class CurrencyDisplay(context: Context, private val attrs: AttributeSet?) :
             ViewCompat
                 .animate(view)
                 .y(if (isPrimary) secondary.y else primary.y)
-                .alpha(if (swapped) {
-                    if (isPrimary) PRIMARY_DISPLAY_ALPHA else SECONDARY_DISPLAY_ALPHA
-                } else {
-                    if (isPrimary) SECONDARY_DISPLAY_ALPHA else PRIMARY_DISPLAY_ALPHA
-                })
                 .setDuration(ANIM_DURATION)
                 .setInterpolator(OvershootInterpolator())
                 .withStartAction { swapFab.isClickable = false }

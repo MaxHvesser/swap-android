@@ -9,8 +9,6 @@ object Constants {
     // endregion
 
     // region Animations
-    const val SECONDARY_DISPLAY_ALPHA: Float = 0.6f
-    const val PRIMARY_DISPLAY_ALPHA: Float = 1f
     const val ANIM_DURATION: Long = 250L
     // endregion
 
