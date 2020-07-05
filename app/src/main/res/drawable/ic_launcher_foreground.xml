@@ -3,32 +3,32 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-  <group android:scaleX="0.12578824"
-      android:scaleY="0.12578824"
-      android:translateX="22.55294"
-      android:translateY="22.55294">
+  <group android:scaleX="0.106451616"
+      android:scaleY="0.106451616"
+      android:translateX="34.2"
+      android:translateY="34.253227">
     <path
-        android:pathData="M250,250m-125,0a125,125 0,1 1,250 0a125,125 0,1 1,-250 0"
-        android:strokeWidth="60"
+        android:pathData="M283.029,293.809C294.039,283.901 303.53,272.336 311.109,259.506C323.912,237.835 331.259,212.555 331.259,185.56C331.259,105.169 266.11,40 185.745,40C151.206,40 119.478,52.037 94.524,72.147"
+        android:strokeWidth="80"
         android:fillColor="#00000000"
-        android:strokeColor="#D9D9D9"
+        android:strokeColor="#444444"
         android:fillType="evenOdd"/>
     <path
-        android:pathData="M342.525,334.05C348.718,327.236 354.169,319.735 358.75,311.675C369.093,293.477 375,272.428 375,250C375,180.964 319.036,125 250,125C220.776,125 193.894,135.029 172.609,151.832C168.122,155.374 164.042,159.076 160.142,163.137C159.244,164.071 158.356,165.025 157.475,166"
-        android:strokeWidth="60"
+        android:pathData="M95.982,70.889C94.104,72.364 92.263,73.885 90.46,75.449C78.609,85.734 68.436,97.905 60.408,111.494C47.605,133.165 40.259,158.445 40.259,185.44C40.259,265.831 105.407,331 185.772,331C220.311,331 252.039,318.963 276.993,298.853"
+        android:strokeWidth="80"
         android:fillColor="#00000000"
-        android:strokeColor="#000000"
+        android:strokeColor="#DCDCDC"
         android:fillType="evenOdd"/>
     <path
-        android:pathData="M298.084,383.395l7.303,-83.582l75.058,67.582z"
+        android:pathData="M330.899,254.569l-17.418,91.311l-75.518,-93.258z"
         android:strokeWidth="1"
-        android:fillColor="#000000"
+        android:fillColor="#DCDCDC"
         android:fillType="evenOdd"
         android:strokeColor="#00000000"/>
     <path
-        android:pathData="M200.916,116.605l-7.303,83.582l-75.058,-67.582z"
+        android:pathData="M43.28,110.687l22.173,-90.274l70.534,97.082z"
         android:strokeWidth="1"
-        android:fillColor="#D9D9D9"
+        android:fillColor="#444444"
         android:fillType="evenOdd"
         android:strokeColor="#00000000"/>
   </group>
