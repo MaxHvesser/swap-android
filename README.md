@@ -25,9 +25,13 @@ The project makes use of the following features;
 
 **Screenshots**
 
-| Splash | Home | Currency Selection |
-| ------------- | ------------- | ------------ |
-| ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/screen_splash.png)  | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/screen_home.png) | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/screen_selection_currency.png) | 
+| Splash | Home | Currency Selection | Currency Selection |
+| ------------- | ------------- | ------------ | ------------ |
+| ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/light_splash.png)  | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/light_home.png) | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/light_currency_selection.png) | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/light_currency_selection_scrolled.png) | 
+
+| Splash | Home | Currency Selection | Currency Selection |
+| ------------- | ------------- | ------------ | ------------ |
+| ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/dark_splash.png)  | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/dark_home.png) | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/dark_currency_selection.png) | ![](https://raw.githubusercontent.com/MaxHvesser/swap-android/master/images/dark_currency_selection_scrolled.png) | 
 
 **Download**
 
