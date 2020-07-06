@@ -55,6 +55,7 @@ captures/
 *.jks
 *.keystore
 *.pepk
+app/release/output.json
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
